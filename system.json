@@ -24,7 +24,7 @@
       "path": "lang/en.json"
     }
   ],
-  "template": "template.json"
+  "template": "template.json",
   "packs": [],
   "packsFolders": [],
   "system": [],
