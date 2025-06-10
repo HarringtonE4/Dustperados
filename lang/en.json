@@ -19,5 +19,9 @@
   "DUSTPERADOS.EquipmentDetails": "Equipment Details",
   "DUSTPERADOS.Damage": "Damage",
   "DUSTPERADOS.Range": "Range",
-  "DUSTPERADOS.Rarity": "Rarity"
+  "DUSTPERADOS.Rarity": "Rarity",
+  "DUSTPERADOS.SettingName": "My Test Setting",
+  "DUSTPERADOS.SettingHint": "This is a test setting for Dustperados.",
+  "DUSTPERADOS.EnableFancyFeature": "Enable Fancy Feature",
+  "DUSTPERADOS.EnableFancyFeatureHint": "Turn this on for a fancy experience!"
 }
