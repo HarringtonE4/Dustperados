@@ -27,7 +27,25 @@
   "template": "template.json",
   "packs": [],
   "packsFolders": [],
-  "system": [],
+  "system": [
+    {
+      "document": "Actor",
+      "defaults": {
+        "actor": {
+          "tokenBars": [
+            {
+              "attribute": "hitLocations.body",
+              "bar": "bar1"
+            },
+            {
+              "attribute": "hitLocations.head",
+              "bar": "bar2"
+            }
+          ]
+        }
+      }
+    }
+  ],  
   "url": "https://github.com/HarringtonE4/Dustperados",
   "manifest": "https://raw.githubusercontent.com/HarringtonE4/Dustperados/main/system.json",
   "download": "https://github.com/HarringtonE4/Dustperados/archive/refs/heads/main.zip",
