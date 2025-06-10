@@ -1,53 +1,32 @@
-<form class="{{cssClass}}" autocomplete="off">
-  <header class="sheet-header">
-    <img class="profile-img" src="{{item.img}}" data-edit="img" title="{{item.name}}"/>
-    <div class="header-details">
-      <h1 class="item-name"><input name="name" type="text" value="{{item.name}}" placeholder="{{localize 'DUSTPERADOS.ItemNamePlaceholder'}}"/></h1>
-    </div>
-  </header>
+{{!-- Details Tab (for custom data) --}}
+            <div class="tab" data-tab="details" data-group="primary">
+                <div class="flexrow">
+                    <label>{{localize "DUSTPERADOS.ItemValue"}}</label>
+                    <input type="number" name="system.value" value="{{item.system.value}}" data-dtype="Number"/>
+                </div>
 
-  {{!-- Sheet Tab Navigation --}}
-  <nav class="sheet-tabs tabs" data-group="primary">
-    <a class="item" data-tab="description">{{localize "DUSTPERADOS.Description"}}</a>
-    {{#if (eq item.type "weapon")}}
-    <a class="item" data-tab="details">{{localize "DUSTPERADOS.WeaponDetails"}}</a>
-    {{/if}}
-    {{#if (eq item.type "equipment")}}
-    <a class="item" data-tab="details">{{localize "DUSTPERADOS.EquipmentDetails"}}</a>
-    {{/if}}
-  </nav>
+                {{!-- Weapon-specific fields --}}
+                {{#if (eq item.type "weapon")}}
+                <div class="flexrow">
+                    <label>{{localize "DUSTPERADOS.WeaponDamage"}}</label>
+                    <input type="text" name="system.damage" value="{{item.system.damage}}" data-dtype="String"/>
+                </div>
+                <div class="flexrow">
+                    <label>{{localize "DUSTPERADOS.WeaponRange"}}</label>
+                    <input type="text" name="system.range" value="{{item.system.range}}" data-dtype="String"/>
+                </div>
+                {{/if}}
 
-  {{!-- Sheet Body --}}
-  <section class="sheet-body">
-    {{!-- Description Tab --}}
-    <div class="tab description" data-tab="description">
-      <div class="editor">
-        {{editor enrichedHtml.system.description target="system.description" button=true owner=owner editable=editable}}
-      </div>
-    </div>
+                {{!-- Equipment-specific fields --}}
+                {{#if (eq item.type "equipment")}}
+                <div class="flexrow">
+                    <label>{{localize "DUSTPERADOS.EquipmentWeight"}}</label>
+                    <input type="number" name="system.weight" value="{{item.system.weight}}" data-dtype="Number"/>
+                </div>
+                <div class="flexrow">
+                    <label>{{localize "DUSTPERADOS.EquipmentQuantity"}}</label>
+                    <input type="number" name="system.quantity" value="{{item.system.quantity}}" data-dtype="Number"/>
+                </div>
+                {{/if}}
 
-    {{!-- Details Tab for Weapon --}}
-    {{#if (eq item.type "weapon")}}
-    <div class="tab details" data-tab="details">
-      <div class="form-group">
-        <label for="system.damage">{{localize 'DUSTPERADOS.Damage'}}:</label>
-        <input type="text" name="system.damage" value="{{systemData.damage}}" data-dtype="String"/>
-      </div>
-      <div class="form-group">
-        <label for="system.range">{{localize 'DUSTPERADOS.Range'}}:</label>
-        <input type="text" name="system.range" value="{{systemData.range}}" data-dtype="String"/>
-      </div>
-    </div>
-    {{/if}}
-
-    {{!-- Details Tab for Equipment --}}
-    {{#if (eq item.type "equipment")}}
-    <div class="tab details" data-tab="details">
-      <div class="form-group">
-        <label for="system.rarity">{{localize 'DUSTPERADOS.Rarity'}}:</label>
-        <input type="text" name="system.rarity" value="{{systemData.rarity}}" data-dtype="String"/>
-      </div>
-    </div>
-    {{/if}}
-  </section>
-</form>
+            </div>

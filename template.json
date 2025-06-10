@@ -1,55 +1,77 @@
 {
-  "Actor": {
-    "types": ["character", "npc"],
-    "templates": {
-      "base": {
-        "abilities": {
-          "brawn": { "value": 10, "label": "Brawn" },
-          "quickness": { "value": 10, "label": "Quickness" },
-          "resolve": { "value": 10, "label": "Resolve" },
-          "charm": { "value": 10, "label": "Charm" },
-          "wit": { "value": 10, "label": "Wit" }
+  "name": "dustperados",
+  "label": "Dustperados System Data Model",
+  "system": {
+    "Actor": {
+      "templates": {
+        "common": {
+          "description": {
+            "type": "String",
+            "label": "Description",
+            "value": ""
+          },
+          "abilities": {
+            "strength": { "value": 0, "label": "DUSTPERADOS.AbilityStr" },
+            "dexterity": { "value": 0, "label": "DUSTPERADOS.AbilityDex" },
+            "constitution": { "value": 0, "label": "DUSTPERADOS.AbilityCon" },
+            "intelligence": { "value": 0, "label": "DUSTPERADOS.AbilityInt" },
+            "wisdom": { "value": 0, "label": "DUSTPERADOS.AbilityWis" },
+            "charisma": { "value": 0, "label": "DUSTPERADOS.AbilityCha" }
+          },
+          "hitLocations": {
+            "head": { "hp": 0, "label": "DUSTPERADOS.HitLocationHead" },
+            "body": { "hp": 0, "label": "DUSTPERADOS.HitLocationBody" }
+          }
+        }
+      },
+      "character": {
+        "templates": ["common"]
+      },
+      "npc": {
+        "templates": ["common"]
+      }
+    },
+    "Item": {
+      "templates": {
+        "common": {
+          "description": {
+            "type": "String",
+            "label": "Description",
+            "value": ""
+          },
+          "value": {
+            "type": "Number",
+            "label": "DUSTPERADOS.ItemValue",
+            "value": 0
+          }
+        }
+      },
+      "weapon": {
+        "templates": ["common"],
+        "damage": {
+          "type": "String",
+          "label": "DUSTPERADOS.WeaponDamage",
+          "value": "1d6"
         },
-        "hitLocations": {
-          "head": { "value": 10, "max": 10 },
-          "body": { "value": 10, "max": 10 },
-          "leftArm": { "value": 10, "max": 10 },
-          "rightArm": { "value": 10, "max": 10 },
-          "leftLeg": { "value": 10, "max": 10 },
-          "rightLeg": { "value": 10, "max": 10 }
+        "range": {
+          "type": "String",
+          "label": "DUSTPERADOS.WeaponRange",
+          "value": ""
+        }
+      },
+      "equipment": {
+        "templates": ["common"],
+        "weight": {
+            "type": "String",
+            "label": "DUSTPERADOS.EquipmentWeight",
+            "value": "0"
         },
-        "description": ""
+        "quantity": {
+          "type": "Number",
+          "label": "DUSTPERADOS.EquipmentQuantity",
+          "value": 1
+        }
       }
-    },
-    "character": {
-      "inherit": ["base"],
-      "details": {
-        "age": "",
-        "gender": "",
-        "height": "",
-        "weight": ""
-      }
-    },
-    "npc": {
-      "inherit": ["base"],
-      "cr": 0
-    }
-  },
-  "Item": {
-    "types": ["weapon", "equipment"],
-    "templates": {
-      "base": {
-        "description": ""
-      }
-    },
-    "weapon": {
-      "inherit": ["base"],
-      "damage": "1d6",
-      "range": "Melee"
-    },
-    "equipment": {
-      "inherit": ["base"],
-      "rarity": "common"
     }
   }
 }

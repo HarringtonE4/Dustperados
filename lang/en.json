@@ -9,11 +9,21 @@
   "DUSTPERADOS.Description": "Description",
   "DUSTPERADOS.Items": "Items",
   "DUSTPERADOS.ItemName": "Name",
+  "DUSTPERADOS.ItemCreateEquipment": "Add Equipment",
   "DUSTPERADOS.AddItem": "Add Item",
   "DUSTPERADOS.Weapon": "Weapon",
   "DUSTPERADOS.Equipment": "Equipment",
   "DUSTPERADOS.EditItem": "Edit Item",
   "DUSTPERADOS.DeleteItem": "Delete Item",
+
+  "DUSTPERADOS.Details": "Details",
+  "DUSTPERADOS.ItemValue": "Value",
+  "DUSTPERADOS.WeaponDamage": "Damage",
+  "DUSTPERADOS.WeaponRange": "Range",
+  "DUSTPERADOS.EquipmentWeight": "Weight",
+  "DUSTPERADOS.EquipmentQuantity": "Quantity",
+  "DUSTPERADOS.SheetTitleItem": "Item Sheet",
+  
   "DUSTPERADOS.WeaponDetails": "Weapon Details",
   "DUSTPERADOS.EquipmentDetails": "Equipment Details",
   "DUSTPERADOS.Damage": "Damage",
@@ -40,4 +50,5 @@
 
   "DUSTPERADOS.SheetTitleCharacter": "Dustperados Character Sheet",
   "DUSTPERADOS.SheetTitleNPC": "Dustperados NPC Sheet"
+
 }
