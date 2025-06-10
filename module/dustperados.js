@@ -1,17 +1,15 @@
 // Dustperados/module/dustperados.js
 
-// Import the custom ActorSheet class
-import { DustperadosActorSheet } from "./sheets/actor-sheet.js"; // Correct path to the new file
+import { DustperadosActorSheet } from "./sheets/actor-sheet.js";
 
 /**
  * Foundry VTT is initialized.
  * This hook is fired once Foundry has finished its initialization process.
  */
-Hooks.once("init", async function() {
+Hooks.once("init", async function() { // Added 'async' keyword here
     console.log("Dustperados | Initializing Dustperados System");
 
     // Register our custom ActorSheet.
-    // The "dustperados" scope is arbitrary but should be unique to your system.
     Actors.registerSheet("dustperados", DustperadosActorSheet, {
         types: ["character"], // Apply this sheet to "character" actors
         makeDefault: true,   // Make this the default sheet for new character actors
@@ -21,10 +19,16 @@ Hooks.once("init", async function() {
     // Optionally register for NPCs if you want them to use the same sheet
     Actors.registerSheet("dustperados", DustperadosActorSheet, {
         types: ["npc"],
-        makeDefault: false, // Don't make it default for NPCs if they might get a different one later
+        makeDefault: false,
         label: "DUSTPERADOS.SheetTitleNPC"
     });
 
-    // You can also unregister the default Foundry sheet if you want to ensure only yours is used.
-    // Actors.unregisterSheet("core", ActorSheet);
+    // --- NEW: Load all Handlebars partials here ---
+    // This tells Foundry about these partials, making them available by their simple name.
+    const templatePaths = [
+        "systems/dustperados/templates/actor-inventory.html"
+        // Add paths to other partials here as you create them (e.g., actor-skills.html)
+    ];
+    await loadTemplates(templatePaths); // Make sure to await this call
+    // --- END NEW ---
 });
