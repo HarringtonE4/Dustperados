@@ -1,54 +1,74 @@
 {
-  "DUSTPERADOS.SystemName": "Dustperados",
-  "DUSTPERADOS.ActorTypeCharacter": "Character",
-  "DUSTPERADOS.ItemTypeWeapon": "Weapon",
-  "DUSTPERADOS.SheetHeaderAbilities": "Abilities",
-  "DUSTPERADOS.SheetHeaderSkills": "Skills",
-  "DUSTPERADOS.ActorNamePlaceholder": "Character Name",
-  "DUSTPERADOS.ItemNamePlaceholder": "Item Name",
-  "DUSTPERADOS.Description": "Description",
-  "DUSTPERADOS.Items": "Items",
-  "DUSTPERADOS.ItemName": "Name",
-  "DUSTPERADOS.ItemCreateEquipment": "Add Equipment",
-  "DUSTPERADOS.AddItem": "Add Item",
-  "DUSTPERADOS.Weapon": "Weapon",
-  "DUSTPERADOS.Equipment": "Equipment",
-  "DUSTPERADOS.EditItem": "Edit Item",
-  "DUSTPERADOS.DeleteItem": "Delete Item",
-
-  "DUSTPERADOS.Details": "Details",
-  "DUSTPERADOS.ItemValue": "Value",
-  "DUSTPERADOS.WeaponDamage": "Damage",
-  "DUSTPERADOS.WeaponRange": "Range",
-  "DUSTPERADOS.EquipmentWeight": "Weight",
-  "DUSTPERADOS.EquipmentQuantity": "Quantity",
-  "DUSTPERADOS.SheetTitleItem": "Item Sheet",
-  
-  "DUSTPERADOS.WeaponDetails": "Weapon Details",
-  "DUSTPERADOS.EquipmentDetails": "Equipment Details",
-  "DUSTPERADOS.Damage": "Damage",
-  "DUSTPERADOS.Range": "Range",
-  "DUSTPERADOS.Rarity": "Rarity",
-  "DUSTPERADOS.SettingName": "My Test Setting",
-  "DUSTPERADOS.SettingHint": "This is a test setting for Dustperados.",
-  "DUSTPERADOS.EnableFancyFeature": "Enable Fancy Feature",
-  "DUSTPERADOS.EnableFancyFeatureHint": "Turn this on for a fancy experience!",
-
-  "DUSTPERADOS.Brawn": "Brawn",
-  "DUSTPERADOS.Quickness": "Quickness",
-  "DUSTPERADOS.Resolve": "Resolve",
-  "DUSTPERADOS.Charm": "Charm",
-  "DUSTPERADOS.Wit": "Wit",
-
-  "DUSTPERADOS.HitLocations": "Hit Locations",
-  "DUSTPERADOS.Head": "Head",
-  "DUSTPERADOS.Body": "Body",
-  "DUSTPERADOS.LeftArm": "Left Arm",
-  "DUSTPERADOS.RightArm": "Right Arm",
-  "DUSTPERADOS.LeftLeg": "Left Leg",
-  "DUSTPERADOS.RightLeg": "Right Leg",
-
-  "DUSTPERADOS.SheetTitleCharacter": "Dustperados Character Sheet",
-  "DUSTPERADOS.SheetTitleNPC": "Dustperados NPC Sheet"
-
+  "DUSTPERADOS": {
+    "System": {
+      "Name": "Dustperados"
+    },
+    "Common": {
+      "Description": "Description",
+      "Details": "Details"
+    },
+    "Actor": {
+      "TypeCharacter": "Character",
+      "NamePlaceholder": "Character Name",
+      "Sheet": {
+        "HeaderAbilities": "Abilities",
+        "HeaderSkills": "Skills",
+        "TitleCharacter": "Dustperados Character Sheet",
+        "TitleNPC": "Dustperados NPC Sheet"
+      },
+      "Abilities": {
+        "Brawn": "Brawn",
+        "Quickness": "Quickness",
+        "Resolve": "Resolve",
+        "Charm": "Charm",
+        "Wit": "Wits"
+      },
+      "HitLocations": {
+        "Title": "Hit Locations",
+        "Head": "Head HP",
+        "Body": "Body HP",
+        "LeftArm": "L. Arm HP",
+        "RightArm": "R. Arm HP",
+        "LeftLeg": "L. Leg HP",
+        "RightLeg": "R. Leg HP",
+        "Defense": "Defense"
+      }
+    },
+    "Item": {
+      "NamePlaceholder": "Item Name",
+      "Name": "Name",
+      "Items": "Items",
+      "Add": {
+        "Equipment": "Add Equipment",
+        "Generic": "Add Item"
+      },
+      "Edit": "Edit Item",
+      "Delete": "Delete Item",
+      "Value": "Value",
+      "Sheet": {
+        "Title": "Item Sheet"
+      },
+      "Type": {
+        "Weapon": "Weapon",
+        "Equipment": "Equipment",
+        "WeaponDetails": "Weapon Details",
+        "EquipmentDetails": "Equipment Details"
+      },
+      "Weapon": {
+        "Damage": "Damage",
+        "Range": "Range"
+      },
+      "Equipment": {
+        "Weight": "Weight",
+        "Quantity": "Quantity"
+      },
+      "Rarity": "Rarity"
+    },
+    "Settings": {
+      "Name": "My Test Setting",
+      "Hint": "This is a test setting for Dustperados.",
+      "EnableFancyFeature": "Enable Fancy Feature",
+      "EnableFancyFeatureHint": "Turn this on for a fancy experience!"
+    }
+  }
 }

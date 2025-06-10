@@ -1,32 +1,58 @@
-{{!-- Details Tab (for custom data) --}}
-            <div class="tab" data-tab="details" data-group="primary">
-                <div class="flexrow">
-                    <label>{{localize "DUSTPERADOS.ItemValue"}}</label>
-                    <input type="number" name="system.value" value="{{item.system.value}}" data-dtype="Number"/>
-                </div>
+<form class="{{cssClass}} flexcol" autocomplete="off">
+    {{!-- Sheet Header --}}
+    <header class="sheet-header">
+        <img class="profile-img" src="{{item.img}}" data-edit="img" title="{{item.name}}"/>
+        <div class="header-fields">
+            <h1 class="charname"><input name="name" type="text" value="{{item.name}}" placeholder="{{localize 'DUSTPERADOS.ItemNamePlaceholder'}}"/></h1>
+        </div>
+    </header>
 
-                {{!-- Weapon-specific fields --}}
-                {{#if (eq item.type "weapon")}}
-                <div class="flexrow">
-                    <label>{{localize "DUSTPERADOS.WeaponDamage"}}</label>
-                    <input type="text" name="system.damage" value="{{item.system.damage}}" data-dtype="String"/>
-                </div>
-                <div class="flexrow">
-                    <label>{{localize "DUSTPERADOS.WeaponRange"}}</label>
-                    <input type="text" name="system.range" value="{{item.system.range}}" data-dtype="String"/>
-                </div>
-                {{/if}}
+    {{!-- Sheet Tab Navigation --}}
+    <nav class="sheet-tabs tabs" data-group="primary">
+        <a class="item" data-tab="description">{{localize "DUSTPERADOS.Description"}}</a>
+        <a class="item" data-tab="details">{{localize "DUSTPERADOS.Details"}}</a>
+    </nav>
 
-                {{!-- Equipment-specific fields --}}
-                {{#if (eq item.type "equipment")}}
-                <div class="flexrow">
-                    <label>{{localize "DUSTPERADOS.EquipmentWeight"}}</label>
-                    <input type="number" name="system.weight" value="{{item.system.weight}}" data-dtype="Number"/>
-                </div>
-                <div class="flexrow">
-                    <label>{{localize "DUSTPERADOS.EquipmentQuantity"}}</label>
-                    <input type="number" name="system.quantity" value="{{item.system.quantity}}" data-dtype="Number"/>
-                </div>
-                {{/if}}
+    {{!-- Sheet Body --}}
+    <section class="sheet-body">
 
+        {{!-- Description Tab --}}
+        <div class="tab" data-tab="description" data-group="primary">
+            {{editor item.system.description target="system.description" rollData=rollData button=true owner=owner editable=editable}}
+        </div>
+
+        {{!-- Details Tab (for custom data) --}}
+        <div class="tab" data-tab="details" data-group="primary">
+            <div class="flexrow">
+                <label>{{localize "DUSTPERADOS.ItemValue"}}</label>
+                <input type="number" name="system.value" value="{{item.system.value}}" data-dtype="Number"/>
             </div>
+
+            {{!-- Weapon-specific fields --}}
+            {{#if (eq item.type "weapon")}}
+            <div class="flexrow">
+                <label>{{localize "DUSTPERADOS.WeaponDamage"}}</label>
+                <input type="text" name="system.damage" value="{{item.system.damage}}" data-dtype="String"/>
+            </div>
+            <div class="flexrow">
+                <label>{{localize "DUSTPERADOS.WeaponRange"}}</label>
+                <input type="text" name="system.range" value="{{item.system.range}}" data-dtype="String"/>
+            </div>
+            {{/if}}
+
+            {{!-- Equipment-specific fields --}}
+            {{#if (eq item.type "equipment")}}
+            <div class="flexrow">
+                <label>{{localize "DUSTPERADOS.EquipmentWeight"}}</label>
+                <input type="number" name="system.weight" value="{{item.system.weight}}" data-dtype="Number"/>
+            </div>
+            <div class="flexrow">
+                <label>{{localize "DUSTPERADOS.EquipmentQuantity"}}</label>
+                <input type="number" name="system.quantity" value="{{item.system.quantity}}" data-dtype="Number"/>
+            </div>
+            {{/if}}
+
+        </div>
+
+    </section>
+</form>

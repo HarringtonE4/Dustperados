@@ -11,16 +11,20 @@
             "value": ""
           },
           "abilities": {
-            "strength": { "value": 0, "label": "DUSTPERADOS.AbilityStr" },
-            "dexterity": { "value": 0, "label": "DUSTPERADOS.AbilityDex" },
-            "constitution": { "value": 0, "label": "DUSTPERADOS.AbilityCon" },
-            "intelligence": { "value": 0, "label": "DUSTPERADOS.AbilityInt" },
-            "wisdom": { "value": 0, "label": "DUSTPERADOS.AbilityWis" },
-            "charisma": { "value": 0, "label": "DUSTPERADOS.AbilityCha" }
+            "brawn": { "value": 0, "label": "DUSTPERADOS.Brawn" },
+            "quickness": { "value": 0, "label": "DUSTPERADOS.Quickness" },
+            "resolve": { "value": 0, "label": "DUSTPERADOS.Resolve" },
+            "charm": { "value": 0, "label": "DUSTPERADOS.Charm" },
+            "wits": { "value": 0, "label": "DUSTPERADOS.Wit" }
           },
           "hitLocations": {
-            "head": { "hp": 0, "label": "DUSTPERADOS.HitLocationHead" },
-            "body": { "hp": 0, "label": "DUSTPERADOS.HitLocationBody" }
+              "head": { "value": 0, "max": 0, "label": "DUSTPERADOS.Actor.HitLocations.Head" },
+              "body": { "value": 0, "max": 0, "label": "DUSTPERADOS.Actor.HitLocations.Body" },
+              "leftArm": { "value": 0, "max": 0, "label": "DUSTPERADOS.Actor.HitLocations.LeftArm" },
+              "rightArm": { "value": 0, "max": 0, "label": "DUSTPERADOS.Actor.HitLocations.RightArm" },
+              "leftLeg": { "value": 0, "max": 0, "label": "DUSTPERADOS.Actor.HitLocations.LeftLeg" },
+              "rightLeg": { "value": 0, "max": 0, "label": "DUSTPERADOS.Actor.HitLocations.RightLeg" },
+              "defense": { "value": 0, "label": "DUSTPERADOS.Actor.HitLocations.Defense" }
           }
         }
       },
@@ -62,9 +66,9 @@
       "equipment": {
         "templates": ["common"],
         "weight": {
-            "type": "String",
-            "label": "DUSTPERADOS.EquipmentWeight",
-            "value": "0"
+          "type": "Number",
+          "label": "DUSTPERADOS.EquipmentWeight",
+          "value": 0
         },
         "quantity": {
           "type": "Number",
