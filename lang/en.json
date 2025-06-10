@@ -36,5 +36,8 @@
   "DUSTPERADOS.LeftArm": "Left Arm",
   "DUSTPERADOS.RightArm": "Right Arm",
   "DUSTPERADOS.LeftLeg": "Left Leg",
-  "DUSTPERADOS.RightLeg": "Right Leg"
+  "DUSTPERADOS.RightLeg": "Right Leg",
+
+  "DUSTPERADOS.SheetTitleCharacter": "Dustperados Character Sheet",
+  "DUSTPERADOS.SheetTitleNPC": "Dustperados NPC Sheet"
 }

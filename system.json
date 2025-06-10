@@ -24,28 +24,38 @@
       "path": "lang/en.json"
     }
   ],
-  "template": "template.json",
-  "packs": [],
-  "packsFolders": [],
-  "system": [
-    {
-      "document": "Actor",
-      "defaults": {
-        "actor": {
-          "tokenBars": [
-            {
-              "attribute": "hitLocations.body",
-              "bar": "bar1"
-            },
-            {
-              "attribute": "hitLocations.head",
-              "bar": "bar2"
-            }
-          ]
-        }
+  "documentTypes": {
+    "Actor": {
+      "common": {
+        "tokenBars": [
+          {
+            "attribute": "hitLocations.body",
+            "bar": "bar1"
+          },
+          {
+            "attribute": "hitLocations.head",
+            "bar": "bar2"
+          }
+        ]
+      },
+      "character": {
+        "templates": ["common"]
+      },
+      "npc": {
+        "templates": ["common"]
+      }
+    },
+    "Item": {
+      "common": {},
+      "weapon": {
+        "templates": ["common"]
+      },
+      "equipment": {
+        "templates": ["common"]
       }
     }
-  ],  
+  },
+  "packs": [],
   "url": "https://github.com/HarringtonE4/Dustperados",
   "manifest": "https://raw.githubusercontent.com/HarringtonE4/Dustperados/main/system.json",
   "download": "https://github.com/HarringtonE4/Dustperados/archive/refs/heads/main.zip",
