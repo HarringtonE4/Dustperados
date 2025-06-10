@@ -3,5 +3,21 @@
   "DUSTPERADOS.ActorTypeCharacter": "Character",
   "DUSTPERADOS.ItemTypeWeapon": "Weapon",
   "DUSTPERADOS.SheetHeaderAbilities": "Abilities",
-  "DUSTPERADOS.SheetHeaderSkills": "Skills"
+  "DUSTPERADOS.SheetHeaderSkills": "Skills",
+  "DUSTPERADOS.ActorNamePlaceholder": "Character Name",
+  "DUSTPERADOS.ItemNamePlaceholder": "Item Name",
+  "DUSTPERADOS.Health": "Health",
+  "DUSTPERADOS.Description": "Description",
+  "DUSTPERADOS.Items": "Items",
+  "DUSTPERADOS.ItemName": "Name",
+  "DUSTPERADOS.AddItem": "Add Item",
+  "DUSTPERADOS.Weapon": "Weapon",
+  "DUSTPERADOS.Equipment": "Equipment",
+  "DUSTPERADOS.EditItem": "Edit Item",
+  "DUSTPERADOS.DeleteItem": "Delete Item",
+  "DUSTPERADOS.WeaponDetails": "Weapon Details",
+  "DUSTPERADOS.EquipmentDetails": "Equipment Details",
+  "DUSTPERADOS.Damage": "Damage",
+  "DUSTPERADOS.Range": "Range",
+  "DUSTPERADOS.Rarity": "Rarity"
 }
