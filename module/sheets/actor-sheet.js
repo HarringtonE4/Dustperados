@@ -7,56 +7,11 @@ export class DustperadosActorSheet extends ActorSheet {
         return foundry.utils.mergeObject(super.defaultOptions, {
             classes: ["dustperados", "sheet", "actor"],
             template: "systems/dustperados/templates/actor-sheet.html",
-            width: 600,
-            height: 600,
-            tabs: [{ navSelector: ".sheet-tabs", contentSelector: ".sheet-body", initial: "description" }]
+            width: 720, // Increased width for the two-column layout
+            height: 800, // Increased height for scrollability
+            // Removed the 'tabs' definition since we're using a single-page layout
+            // tabs: [{ navSelector: ".sheet-tabs", contentSelector: ".sheet-body", initial: "description" }]
         });
-    }
-
-    /** @override */
-    activateListeners(html) {
-        super.activateListeners(html); // Call the base class's listeners
-
-        // --- Inventory Partial Injection Code (keep this as is) ---
-        const inventoryContainer = html.find("#inventory-content-container");
-        if (inventoryContainer.length > 0) {
-            const inventoryPath = "systems/dustperados/templates/actor-inventory.html";
-            fetch(inventoryPath)
-                .then(response => {
-                    if (!response.ok) {
-                        throw new Error(`HTTP error! status: ${response.status}`);
-                    }
-                    return response.text();
-                })
-                .then(htmlContent => {
-                    const compiledTemplate = Handlebars.compile(htmlContent);
-                    const renderedHtml = compiledTemplate(this.getData());
-                    inventoryContainer.html(renderedHtml);
-
-                    // --- NEW: Add event listeners specific to the INJECTED inventory HTML here ---
-                    // We need to re-select elements *within* the now-injected content
-                    const injectedInventory = inventoryContainer; // The container now holds the new content
-
-                    // Item Create button
-                    injectedInventory.find('.item-create').click(this._onItemCreate.bind(this));
-
-                    // Item Edit button
-                    injectedInventory.find('.item-edit').click(this._onItemEdit.bind(this));
-
-                    // Item Delete button
-                    injectedInventory.find('.item-delete').click(this._onItemDelete.bind(this));
-                    // --- END NEW listeners for injected content ---
-
-                })
-                .catch(error => {
-                    console.error(`Dustperados | Error loading inventory partial: ${error}`);
-                    inventoryContainer.html(`<p style="color: red;">Error loading inventory: ${error.message}</p>`);
-                });
-        }
-        // --- End Inventory Partial Injection Code ---
-
-        // Any other listeners that apply to the main actor-sheet.html directly
-        // (e.g., if you had buttons outside the inventory section) go here.
     }
 
     // --- NEW: Helper methods for item management ---

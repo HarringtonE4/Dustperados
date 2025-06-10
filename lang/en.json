@@ -32,6 +32,11 @@
         "LeftLeg": "L. Leg HP",
         "RightLeg": "R. Leg HP",
         "Defense": "Defense"
+      },
+      "DamageStatus": {
+        "Graze": "Graze",
+        "Hit": "Hit",
+        "Crit": "Crit"
       }
     },
     "Item": {

@@ -1,66 +1,127 @@
 <form class="{{cssClass}} flexcol" autocomplete="off">
 
-  {{!-- Sheet Header --}}
-  <header class="sheet-header">
-    <img class="profile-img" src="{{actor.img}}" data-edit="img" title="{{actor.name}}"/>
-    <div class="header-details">
-      <h1 class="charname"><input name="name" type="text" value="{{actor.name}}" placeholder="{{localize 'DUSTPERADOS.Actor.NamePlaceholder'}}"/></h1>
-    </div>
-  </header>
-
-  {{!-- Sheet Tab Navigation --}}
-  <nav class="sheet-tabs tabs" data-group="primary">
-    <a class="item" data-tab="description">{{localize "DUSTPERADOS.Common.Description"}}</a>
-    <a class="item" data-tab="attributes">{{localize "DUSTPERADOS.Actor.Sheet.HeaderAbilities"}}</a> {{!-- Renamed tab to "Attributes" --}}
-    <a class="item" data-tab="inventory">{{localize "DUSTPERADOS.Item.Items"}}</a>
-  </nav>
-
-  {{!-- Sheet Body --}}
-  <section class="sheet-body">
-
-    {{!-- Description Tab --}}
-    <div class="tab" data-tab="description" data-group="primary">
-      {{editor actor.system.description target="system.description" rollData=rollData button=true owner=owner editable=editable}}
-    </div>
-
-    {{!-- Attributes Tab --}}
-    <div class="tab attributes flexcol" data-tab="attributes" data-group="primary">
-      <div class="flexrow">
-        {{!-- Abilities Section --}}
-        <div class="flexcol ability-section">
-          <h2>{{localize "DUSTPERADOS.Actor.Sheet.HeaderAbilities"}}</h2>
-          {{#each actor.system.abilities as |ability key|}}
-          <div class="ability-row flexrow">
-            <label class="ability-label">{{localize ability.label}}</label>
-            <input type="text" name="system.abilities.{{key}}.value" value="{{ability.value}}" data-dtype="Number"/>
-          </div>
-          {{/each}}
-        </div>
-
-        {{!-- Hit Locations Section --}}
-        <div class="flexcol hit-location-section">
-          <h2>{{localize "DUSTPERADOS.Actor.HitLocations.Title"}}</h2>
-          {{#each actor.system.hitLocations as |location key|}}
-          <div class="hit-location-row flexrow">
-            {{!-- Corrected localization path for hit locations --}}
-            <label class="location-label">{{localize (concat "DUSTPERADOS.Actor.HitLocations." (capitalize key))}}</label>
-            <div class="flexrow hit-value-max">
-              <input type="text" name="system.hitLocations.{{key}}.value" value="{{location.value}}" data-dtype="Number"/>
-              <span>/</span>
-              <input type="text" name="system.hitLocations.{{key}}.max" value="{{location.max}}" data-dtype="Number"/>
+    {{!-- Sheet Header --}}
+    <header class="sheet-header">
+        <div class="profile-section">
+            <img class="profile-img" src="{{actor.img}}" data-edit="img" title="{{actor.name}}"/>
+            <div class="charname-wrapper">
+                <input name="name" type="text" value="{{actor.name}}" placeholder="{{localize 'DUSTPERADOS.Actor.NamePlaceholder'}}"/>
             </div>
-          </div>
-          {{/each}}
         </div>
-      </div>
-    </div>
+    </header>
 
-    {{!-- Inventory Tab --}}
-    <div class="tab inventory" data-group="primary" data-tab="inventory">
-      <div id="inventory-content-container">
-        {{!-- Inventory content will be injected here by actor-sheet.js --}}
-      </div>
-    </div> 
+    {{!-- Sheet Body - Main Content Area --}}
+    <section class="sheet-body flexrow">
+        <div class="left-panel flexcol">
+            {{!-- Abilities Section --}}
+            <div class="abilities-section section-block">
+                <h3>{{localize "DUSTPERADOS.Actor.Sheet.HeaderAbilities"}}</h3>
+                <div class="abilities-grid">
+                    {{#each actor.system.abilities as |ability key|}}
+                    <div class="ability-item">
+                        <label class="ability-label">{{localize ability.label}}</label>
+                        <input type="text" name="system.abilities.{{key}}.value" value="{{ability.value}}" data-dtype="Number"/>
+                    </div>
+                    {{/each}}
+                </div>
+            </div>
 
-  </section>
+            {{!-- Hit Locations Section (Visualized as Boxes) --}}
+            <div class="hit-locations-section section-block">
+                <h3>{{localize "DUSTPERADOS.Actor.HitLocations.Title"}}</h3>
+                <div class="hit-locations-grid">
+                    <div class="hit-location-item head-location">
+                        <label>{{localize "DUSTPERADOS.Actor.HitLocations.Head"}}</label>
+                        <div class="hp-input-group">
+                            <input type="number" name="system.hitLocations.head.value" value="{{actor.system.hitLocations.head.value}}" data-dtype="Number"/>
+                            <span>————</span>
+                            <input type="number" name="system.hitLocations.head.max" value="{{actor.system.hitLocations.head.max}}" data-dtype="Number"/>
+                        </div>
+                    </div>
+
+                    <div class="hit-location-item arm-left-location">
+                        <label>{{localize "DUSTPERADOS.Actor.HitLocations.LeftArm"}}</label>
+                        <div class="hp-input-group">
+                            <input type="number" name="system.hitLocations.leftArm.value" value="{{actor.system.hitLocations.leftArm.value}}" data-dtype="Number"/>
+                            <span>————</span>
+                            <input type="number" name="system.hitLocations.leftArm.max" value="{{actor.system.hitLocations.leftArm.max}}" data-dtype="Number"/>
+                        </div>
+                    </div>
+                    <div class="hit-location-item arm-right-location">
+                        <label>{{localize "DUSTPERADOS.Actor.HitLocations.RightArm"}}</label>
+                        <div class="hp-input-group">
+                            <input type="number" name="system.hitLocations.rightArm.value" value="{{actor.system.hitLocations.rightArm.value}}" data-dtype="Number"/>
+                            <span>————</span>
+                            <input type="number" name="system.hitLocations.rightArm.max" value="{{actor.system.hitLocations.rightArm.max}}" data-dtype="Number"/>
+                        </div>
+                    </div>
+
+                    <div class="hit-location-item body-location">
+                        <label>{{localize "DUSTPERADOS.Actor.HitLocations.Body"}}</label>
+                        <div class="hp-input-group">
+                            <input type="number" name="system.hitLocations.body.value" value="{{actor.system.hitLocations.body.value}}" data-dtype="Number"/>
+                            <span>————</span>
+                            <input type="number" name="system.hitLocations.body.max" value="{{actor.system.hitLocations.body.max}}" data-dtype="Number"/>
+                        </div>
+                    </div>
+                    <div class="hit-location-item def-location">
+                        <label>{{localize "DUSTPERADOS.Actor.HitLocations.Defense"}}</label>
+                        <input type="number" name="system.hitLocations.defense.value" value="{{actor.system.hitLocations.defense.value}}" data-dtype="Number"/>
+                    </div>
+
+                    <div class="hit-location-item leg-left-location">
+                        <label>{{localize "DUSTPERADOS.Actor.HitLocations.LeftLeg"}}</label>
+                        <div class="hp-input-group">
+                            <input type="number" name="system.hitLocations.leftLeg.value" value="{{actor.system.hitLocations.leftLeg.value}}" data-dtype="Number"/>
+                            <span>————</span>
+                            <input type="number" name="system.hitLocations.leftLeg.max" value="{{actor.system.hitLocations.leftLeg.max}}" data-dtype="Number"/>
+                        </div>
+                    </div>
+                    <div class="hit-location-item leg-right-location">
+                        <label>{{localize "DUSTPERADOS.Actor.HitLocations.RightLeg"}}</label>
+                        <div class="hp-input-group">
+                            <input type="number" name="system.hitLocations.rightLeg.value" value="{{actor.system.hitLocations.rightLeg.value}}" data-dtype="Number"/>
+                            <span>____</span>
+                            <input type="number" name="system.hitLocations.rightLeg.max" value="{{actor.system.hitLocations.rightLeg.max}}" data-dtype="Number"/>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            {{!-- Graze, Hit, Crit section --}}
+            <div class="damage-status-section section-block">
+                <h3>Damage Thresholds</h3> <div class="damage-status-grid">
+                    <div class="status-item">
+                        <input type="number" name="system.damageStatus.graze.value" value="{{actor.system.damageStatus.graze.value}}" data-dtype="Number"/>
+                        <label>{{localize "DUSTPERADOS.Actor.DamageStatus.Graze"}}</label>
+                    </div>
+                    <div class="status-item">
+                        <input type="number" name="system.damageStatus.hit.value" value="{{actor.system.damageStatus.hit.value}}" data-dtype="Number"/>
+                        <label>{{localize "DUSTPERADOS.Actor.DamageStatus.Hit"}}</label>
+                    </div>
+                    <div class="status-item">
+                        <input type="number" name="system.damageStatus.crit.value" value="{{actor.system.damageStatus.crit.value}}" data-dtype="Number"/>
+                        <label>{{localize "DUSTPERADOS.Actor.DamageStatus.Crit"}}</label>
+                    </div>
+                </div>
+            </div>
+
+            {{!-- Description Section --}}
+            <div class="description-section section-block">
+                <h3>{{localize "DUSTPERADOS.Common.Description"}}</h3>
+                {{editor actor.system.description target="system.description" rollData=rollData button=true owner=owner editable=editable}}
+            </div>
+        </div> {{!-- End left-panel --}}
+
+        <div class="right-panel flexcol">
+            {{!-- Inventory Section --}}
+            <div class="inventory-section section-block">
+                <h3>{{localize "DUSTPERADOS.Item.Items"}}</h3>
+                <div id="inventory-content-container">
+                    <!-- Inventory content will be loaded here by actor-sheet.js -->
+                </div>
+            </div>
+        </div> {{!-- End right-panel --}}
+
+    </section> {{!-- End sheet-body --}}
 </form>

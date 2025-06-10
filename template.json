@@ -18,13 +18,18 @@
             "wits": { "value": 0, "label": "DUSTPERADOS.Wit" }
           },
           "hitLocations": {
-              "head": { "value": 0, "max": 0, "label": "DUSTPERADOS.Actor.HitLocations.Head" },
-              "body": { "value": 0, "max": 0, "label": "DUSTPERADOS.Actor.HitLocations.Body" },
-              "leftArm": { "value": 0, "max": 0, "label": "DUSTPERADOS.Actor.HitLocations.LeftArm" },
-              "rightArm": { "value": 0, "max": 0, "label": "DUSTPERADOS.Actor.HitLocations.RightArm" },
-              "leftLeg": { "value": 0, "max": 0, "label": "DUSTPERADOS.Actor.HitLocations.LeftLeg" },
-              "rightLeg": { "value": 0, "max": 0, "label": "DUSTPERADOS.Actor.HitLocations.RightLeg" },
-              "defense": { "value": 0, "label": "DUSTPERADOS.Actor.HitLocations.Defense" }
+            "head": { "value": 0, "max": 0, "label": "DUSTPERADOS.Actor.HitLocations.Head" },
+            "body": { "value": 0, "max": 0, "label": "DUSTPERADOS.Actor.HitLocations.Body" },
+            "leftArm": { "value": 0, "max": 0, "label": "DUSTPERADOS.Actor.HitLocations.LeftArm" },
+            "rightArm": { "value": 0, "max": 0, "label": "DUSTPERADOS.Actor.HitLocations.RightArm" },
+            "leftLeg": { "value": 0, "max": 0, "label": "DUSTPERADOS.Actor.HitLocations.LeftLeg" },
+            "rightLeg": { "value": 0, "max": 0, "label": "DUSTPERADOS.Actor.HitLocations.RightLeg" },
+            "defense": { "value": 0, "label": "DUSTPERADOS.Actor.HitLocations.Defense" }
+          },
+          "damageStatus": {
+            "graze": { "type": "Boolean", "value": false },
+            "hit": { "type": "Boolean", "value": false },
+            "crit": { "type": "Boolean", "value": false }
           }
         }
       },
@@ -45,7 +50,7 @@
           },
           "value": {
             "type": "Number",
-            "label": "DUSTPERADOS.ItemValue",
+            "label": "DUSTPERADOS.Item.Value",
             "value": 0
           }
         }
@@ -54,12 +59,12 @@
         "templates": ["common"],
         "damage": {
           "type": "String",
-          "label": "DUSTPERADOS.WeaponDamage",
+          "label": "DUSTPERADOS.Item.Weapon.Damage",
           "value": "1d6"
         },
         "range": {
           "type": "String",
-          "label": "DUSTPERADOS.WeaponRange",
+          "label": "DUSTPERADOS.Item.Weapon.Range",
           "value": ""
         }
       },
@@ -67,12 +72,12 @@
         "templates": ["common"],
         "weight": {
           "type": "Number",
-          "label": "DUSTPERADOS.EquipmentWeight",
+          "label": "DUSTPERADOS.Item.Equipment.Weight",
           "value": 0
         },
         "quantity": {
           "type": "Number",
-          "label": "DUSTPERADOS.EquipmentQuantity",
+          "label": "DUSTPERADOS.Item.Equipment.Quantity",
           "value": 1
         }
       }

@@ -1,48 +1,385 @@
-/* Basic styling for your Dustperados system */
-.dustperados.sheet {
-  font-family: sans-serif;
-  color: #333;
+/* BASE STYLES & FONT */
+@import url('https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:wght@400;700&display=swap'); /* A clean, mono-spaced font, similar to OSE feel */
+
+.dustperados.sheet.actor {
+    font-family: 'IBM Plex Mono', monospace; /* Apply to the whole sheet */
+    background: #fdfaf5; /* Light cream background */
+    color: #333; /* Dark grey text */
 }
 
-.dustperados.sheet .window-content {
-  padding: 10px;
+/* Basic input styling */
+.dustperados.sheet input[type="text"],
+.dustperados.sheet input[type="number"] {
+    background: #fff;
+    border: 1px solid #ccc;
+    padding: 2px 4px;
+    font-size: 14px;
+    line-height: 1.4;
+    font-family: 'IBM Plex Mono', monospace;
+    box-shadow: inset 0 1px 2px rgba(0,0,0,0.1);
+    -webkit-appearance: none; /* For consistent styling across browsers */
+    -moz-appearance: textfield; /* For Firefox */
 }
 
+.dustperados.sheet input[type="number"]::-webkit-inner-spin-button,
+.dustperados.sheet input[type="number"]::-webkit-outer-spin-button {
+    -webkit-appearance: none;
+    margin: 0;
+}
+
+/* SECTION BLOCKS */
+.dustperados.sheet .section-block {
+    background: #ffffff;
+    border: 1px solid #ccc;
+    padding: 10px;
+    margin-bottom: 15px; /* Spacing between blocks */
+    box-shadow: 2px 2px 5px rgba(0,0,0,0.1);
+    border-radius: 3px;
+}
+
+.dustperados.sheet .section-block h3 {
+    font-size: 1.2em;
+    text-align: center;
+    border-bottom: 1px solid #ddd;
+    padding-bottom: 5px;
+    margin-top: 0;
+    margin-bottom: 10px;
+    color: #555;
+}
+
+/* HEADER */
 .dustperados.sheet .sheet-header {
-  text-align: center;
-  margin-bottom: 10px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding: 0px 0;
+    background: #e8e4db; /* Slightly darker header background */
+    border-bottom: 1px solid #ccc;
+    margin-bottom: 0px;
+    height: 80px !important;
+}
+
+.dustperados.sheet .profile-section {
+    display: flex;
+    align-items: center;
+    gap: 0px;
+    margin-bottom: 5px;
 }
 
 .dustperados.sheet .profile-img {
-  width: 90px;
-  height: 90px;
-  border: 2px solid #555;
-  border-radius: 5px;
+    flex: 0 0 80px; /* Fixed size for image */
+    height: 80px;
+    border: 2px solid #aaa;
+    border-radius: 5px;
+    object-fit: cover;
 }
 
-.dustperados.sheet h1 {
-  font-size: 1.8em;
-  margin: 0;
+.dustperados.sheet .charname-wrapper input {
+    font-size: 1.5em;
+    font-weight: bold;
+    text-align: center;
+    border: none;
+    background: none;
+    border-bottom: 1px dashed #999; /* Dotted line under name */
+    padding: 2px 0;
+    width: 100%;
 }
 
-.dustperados.sheet .flexrow {
-  display: flex;
-  flex-direction: row;
-  flex-wrap: wrap;
+/* SHEET BODY - MAIN LAYOUT */
+.dustperados.sheet .sheet-body {
+    display: flex;
+    flex-direction: column; /* Default for larger screens */
+    padding: 0 15px 15px; /* Note: Top padding is already 0 here */
+    overflow-y: auto; /* Allow scrolling for main content */
+    flex-grow: 1; /* ADD THIS LINE: Makes the sheet-body take up all remaining vertical space */
 }
 
-.dustperados.sheet .flexcol {
-  display: flex;
-  flex-direction: column;
+/* NEW: Wrapper for the two main content columns */
+.dustperados.sheet .main-content-columns {
+    display: flex;
+    flex-direction: row; /* Arranges left and right panels side-by-side */
+    gap: 15px; /* Spacing between the left and right columns */
+    flex-grow: 1; /* Allows this wrapper to take up remaining vertical space in sheet-body */
 }
 
-.dustperados.sheet .flex-group {
-  flex: 1;
-  padding: 5px;
+/* Also, let's explicitly make the form a flex container if it's not already,
+   though it usually is by default for Foundry sheets */
+.dustperados.sheet.actor {
+    /* Existing properties... */
+    display: flex;
+    flex-direction: column;
 }
 
-.dustperados.sheet input[type="text"],
-.dustperados.sheet input[type="number"] {
-  width: 100%;
-  box-sizing: border-box;
+/* ABILITIES SECTION */
+.dustperados.sheet .abilities-grid {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr); /* Two columns for abilities */
+    gap: 10px;
+}
+
+.dustperados.sheet .ability-item {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 5px;
+    border: 1px solid #eee; /* Subtle border for each ability */
+    background: #fcfafa;
+    border-radius: 3px;
+}
+
+.dustperados.sheet .ability-item label {
+    font-weight: bold;
+    flex-grow: 1;
+    margin-right: 5px;
+    text-align: left;
+}
+
+.dustperados.sheet .ability-item input {
+    width: 50px; /* Fixed width for ability score input */
+    text-align: center;
+}
+
+/* HIT LOCATIONS SECTION */
+.dustperados.sheet .hit-locations-grid {
+    display: grid;
+    grid-template-columns: 1fr; /* Default to single column */
+    gap: 8px;
+    justify-items: center;
+}
+
+.dustperados.sheet .hit-location-item {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    border: 1px solid #ccc;
+    padding: 5px 10px;
+    width: 90%; /* Adjust width for visual appeal */
+    max-width: 250px;
+    background: #fcfafa;
+    border-radius: 3px;
+}
+
+.dustperados.sheet .hit-location-item label {
+    font-weight: bold;
+    margin-right: 5px;
+}
+
+.dustperados.sheet .hp-input-group {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 0px;
+}
+
+.dustperados.sheet .hp-input-group input {
+    width: 40px; /* Smaller inputs for HP values */
+    text-align: center;
+}
+
+.dustperados.sheet .hp-input-group span {
+    font-weight: bold;
+    font-size: 1.1em;
+    color: #777;
+    margin: -5px 0; */
+}
+
+/* Manual positioning for a more "stick figure" feel */
+.dustperados.sheet .head-location { grid-area: head; }
+.dustperados.sheet .arm-left-location { grid-area: arm-left; }
+.dustperados.sheet .arm-right-location { grid-area: arm-right; }
+.dustperados.sheet .body-location { grid-area: body; }
+.dustperados.sheet .def-location { grid-area: def; } /* Defense is often central */
+.dustperados.sheet .leg-left-location { grid-area: leg-left; }
+.dustperados.sheet .leg-right-location { grid-area: leg-right; }
+
+/* Layout for hit locations (adjust as needed for desired "stick figure" shape) */
+@media (min-width: 600px) { /* Apply a grid layout for larger sheets */
+    .dustperados.sheet .hit-locations-grid {
+        display: grid;
+        grid-template-columns: 1fr 1.5fr 1fr; /* Left limb, Body/Head/Def, Right limb */
+        grid-template-areas:
+            ". head ."
+            "arm-left body arm-right"
+            ". def ."
+            "leg-left . leg-right";
+        gap: 5px 10px; /* Vertical and horizontal gap */
+        width: 100%;
+        max-width: 400px; /* Constrain overall width */
+        margin: auto; /* Center the grid */
+    }
+
+    .dustperados.sheet .hit-location-item {
+        width: auto; /* Let grid control width */
+        max-width: none;
+    }
+
+    /* Adjust specific items for layout */
+    .dustperados.sheet .head-location {
+        grid-column: 2 / 3; /* Center in middle column */
+        justify-self: center;
+    }
+    .dustperados.sheet .arm-left-location {
+        justify-self: end; /* Align to right of its cell */
+    }
+    .dustperados.sheet .arm-right-location {
+        justify-self: start; /* Align to left of its cell */
+    }
+    .dustperados.sheet .body-location {
+        grid-column: 2 / 3;
+        justify-self: center;
+    }
+    .dustperados.sheet .def-location {
+        grid-column: 2 / 3;
+        justify-self: center;
+    }
+    .dustperados.sheet .leg-left-location {
+        justify-self: end;
+    }
+    .dustperados.sheet .leg-right-location {
+        justify-self: start;
+    }
+}
+
+
+/* DAMAGE STATUS SECTION */
+.dustperados.sheet .damage-status-grid {
+    display: flex;
+    justify-content: space-around;
+    gap: 10px;
+    flex-wrap: wrap; /* Allow wrapping on smaller screens */
+}
+
+.dustperados.sheet .status-item {
+    display: flex;
+    flex-direction: column; /* Stack label above input */
+    align-items: center;
+    border: 1px solid #ccc;
+    padding: 5px;
+    background: #fcfafa;
+    border-radius: 3px;
+    min-width: 70px; /* Ensure some width */
+}
+
+.dustperados.sheet .status-item label {
+    font-weight: bold;
+    margin-bottom: 5px;
+    font-size: 0.9em;
+    text-align: center;
+}
+
+.dustperados.sheet .status-item input[type="number"] {
+    width: 50px; /* Small input for damage status */
+    text-align: center;
+}
+
+/* DESCRIPTION SECTION */
+.dustperados.sheet .description-section .editor {
+    height: auto; /* Allow editor to grow */
+    min-height: 200px; /* Minimum height for the editor */
+    border: 1px solid #ccc;
+    box-shadow: inset 0 1px 2px rgba(0,0,0,0.1);
+    border-radius: 3px;
+}
+
+/* INVENTORY SECTION */
+.dustperados.sheet .inventory-section #inventory-content-container {
+    /* This container will hold the content injected from actor-inventory.html */
+    /* Basic styling for the container */
+    min-height: 300px; /* Give it some space */
+    /* No specific border here, as the section-block already provides one */
+}
+
+/* Override Foundry's default item list styles (from actor-inventory.html) */
+.dustperados.sheet ol.items-list {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+}
+
+.dustperados.sheet .items-list .item-header {
+    font-weight: bold;
+    border-bottom: 1px solid #ccc;
+    padding: 5px 0;
+    display: flex;
+    line-height: 20px;
+    align-items: center;
+    margin-bottom: 5px;
+}
+
+.dustperados.sheet .items-list .item {
+    display: flex;
+    align-items: center;
+    border-bottom: 1px dotted #eee;
+    padding: 5px 0;
+}
+
+.dustperados.sheet .items-list .item-name {
+    flex: 1;
+    font-weight: bold;
+}
+
+.dustperados.sheet .items-list .item-controls {
+    flex: 0 0 auto;
+    display: flex;
+    gap: 5px;
+}
+
+.dustperados.sheet .items-list .item-controls a {
+    font-size: 14px;
+    color: #777;
+}
+
+.dustperados.sheet .items-list .item-controls a:hover {
+    color: #f75d59; /* A subtle hover color */
+}
+
+.dustperados.sheet .item-buttons {
+    display: flex;
+    justify-content: flex-end;
+    gap: 10px;
+    padding-top: 10px;
+    border-top: 1px dotted #eee;
+    margin-top: 10px;
+}
+
+.dustperados.sheet .item-buttons button {
+    background: #4CAF50; /* Green button */
+    color: white;
+    border: none;
+    padding: 8px 12px;
+    border-radius: 3px;
+    cursor: pointer;
+    font-family: 'IBM Plex Mono', monospace;
+}
+
+.dustperados.sheet .item-buttons button:hover {
+    background: #45a049;
+}
+
+/* Responsive Adjustments */
+@media (max-width: 768px) {
+    .dustperados.sheet .sheet-body {
+        flex-direction: column; /* Stack panels vertically on small screens */
+    }
+    .dustperados.sheet .left-panel,
+    .dustperados.sheet .right-panel {
+        flex: 1; /* Both panels take equal width */
+      min-width: 0; /* Allows them to shrink if window is very small, preventing overflow */
+      display: flex;
+      flex-direction: column; /* Stacks sections vertically within each panel */
+      gap: 15px; /* Spacing between sections (e.g., Hit Locations and Items) within each column */
+    }
+}
+/* Override for 'layer compatibility.base' display: flex */
+.dustperados.sheet.actor .window-content {
+    /* Keep these from previous steps, they are important */
+    height: auto !important;
+    min-height: unset !important;
+
+    /* Add or modify these to disable flex or change its behavior */
+    display: block !important; /* Change display from flex to block */
+    /* If display: block causes layout issues, try: */
+    /* flex-direction: column !important; */ /* Or explicitly set flex direction */
+    /* justify-content: flex-start !important; */ /* Or set content alignment */
+    /* align-items: flex-start !important; */ /* Or set item alignment */
 }
