@@ -4,16 +4,19 @@
     "templates": {
       "base": {
         "abilities": {
-          "strength": { "value": 10, "label": "STR" },
-          "dexterity": { "value": 10, "label": "DEX" },
-          "constitution": { "value": 10, "label": "CON" },
-          "intelligence": { "value": 10, "label": "INT" },
-          "wisdom": { "value": 10, "label": "WIS" },
-          "charisma": { "value": 10, "label": "CHA" }
+          "brawn": { "value": 10, "label": "Brawn" },
+          "quickness": { "value": 10, "label": "Quickness" },
+          "resolve": { "value": 10, "label": "Resolve" },
+          "charm": { "value": 10, "label": "Charm" },
+          "wit": { "value": 10, "label": "Wit" }
         },
-        "health": {
-          "value": 10,
-          "max": 10
+        "hitLocations": {
+          "head": { "value": 10, "max": 10 },
+          "body": { "value": 10, "max": 10 },
+          "leftArm": { "value": 10, "max": 10 },
+          "rightArm": { "value": 10, "max": 10 },
+          "leftLeg": { "value": 10, "max": 10 },
+          "rightLeg": { "value": 10, "max": 10 }
         },
         "description": ""
       }

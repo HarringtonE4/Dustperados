@@ -6,7 +6,6 @@
   "DUSTPERADOS.SheetHeaderSkills": "Skills",
   "DUSTPERADOS.ActorNamePlaceholder": "Character Name",
   "DUSTPERADOS.ItemNamePlaceholder": "Item Name",
-  "DUSTPERADOS.Health": "Health",
   "DUSTPERADOS.Description": "Description",
   "DUSTPERADOS.Items": "Items",
   "DUSTPERADOS.ItemName": "Name",
@@ -23,5 +22,19 @@
   "DUSTPERADOS.SettingName": "My Test Setting",
   "DUSTPERADOS.SettingHint": "This is a test setting for Dustperados.",
   "DUSTPERADOS.EnableFancyFeature": "Enable Fancy Feature",
-  "DUSTPERADOS.EnableFancyFeatureHint": "Turn this on for a fancy experience!"
+  "DUSTPERADOS.EnableFancyFeatureHint": "Turn this on for a fancy experience!",
+
+  "DUSTPERADOS.Brawn": "Brawn",
+  "DUSTPERADOS.Quickness": "Quickness",
+  "DUSTPERADOS.Resolve": "Resolve",
+  "DUSTPERADOS.Charm": "Charm",
+  "DUSTPERADOS.Wit": "Wit",
+
+  "DUSTPERADOS.HitLocations": "Hit Locations",
+  "DUSTPERADOS.Head": "Head",
+  "DUSTPERADOS.Body": "Body",
+  "DUSTPERADOS.LeftArm": "Left Arm",
+  "DUSTPERADOS.RightArm": "Right Arm",
+  "DUSTPERADOS.LeftLeg": "Left Leg",
+  "DUSTPERADOS.RightLeg": "Right Leg"
 }
