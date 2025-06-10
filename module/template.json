@@ -1,0 +1,52 @@
+{
+  "Actor": {
+    "types": ["character", "npc"],
+    "templates": {
+      "base": {
+        "abilities": {
+          "strength": { "value": 10, "label": "STR" },
+          "dexterity": { "value": 10, "label": "DEX" },
+          "constitution": { "value": 10, "label": "CON" },
+          "intelligence": { "value": 10, "label": "INT" },
+          "wisdom": { "value": 10, "label": "WIS" },
+          "charisma": { "value": 10, "label": "CHA" }
+        },
+        "health": {
+          "value": 10,
+          "max": 10
+        },
+        "description": ""
+      }
+    },
+    "character": {
+      "inherit": ["base"],
+      "details": {
+        "age": "",
+        "gender": "",
+        "height": "",
+        "weight": ""
+      }
+    },
+    "npc": {
+      "inherit": ["base"],
+      "cr": 0
+    }
+  },
+  "Item": {
+    "types": ["weapon", "equipment"],
+    "templates": {
+      "base": {
+        "description": ""
+      }
+    },
+    "weapon": {
+      "inherit": ["base"],
+      "damage": "1d6",
+      "range": "Melee"
+    },
+    "equipment": {
+      "inherit": ["base"],
+      "rarity": "common"
+    }
+  }
+}
