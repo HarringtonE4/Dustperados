@@ -3,61 +3,41 @@
     "title": "Dustperados",
     "description": "A simple system for Foundry VTT.",
     "version": "0.0.1",
-    "compatibility":
-    {
+    "compatibility": {
         "minimum": "13.0.0",
         "verified": "13.0.0",
         "maximum": "13.999"
     },
-    "authors": [
-    {
+    "authors": [{
         "name": "HarringtonE4",
         "url": "https://github.com/HarringtonE4",
         "email": "None"
     }],
     "esmodules": ["module/dustperados.js"],
     "styles": ["css/dustperados.css"],
-    "languages": [
-    {
+    "languages": [{
         "lang": "en",
         "name": "English",
         "path": "lang/en.json"
     }],
-    "documentTypes":
-    {
-        "Actor":
-        {
-            "common":
-            {
-                "tokenBars": [
-                {
-                    "attribute": "hitLocations.body",
-                    "bar": "bar1"
-                },
-                {
-                    "attribute": "hitLocations.head",
-                    "bar": "bar2"
-                }]
+    "template": "template.json",
+    "documentTypes": {
+        "Actor": {
+            "common": {
             },
-            "character":
-            {
+            "character": {
                 "templates": ["common"]
             },
-            "npc":
-            {
+            "npc": {
                 "templates": ["common"]
             }
         },
-        "Item":
-        {
-            "common":
-            {},
-            "weapon":
-            {
+        "Item": {
+            "common": {},
+            "weapon": {
                 "templates": ["common"]
             },
-            "equipment":
-            {
+            "equipment": {
                 "templates": ["common"]
             }
         }
