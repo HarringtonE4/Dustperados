@@ -1,32 +1,29 @@
 {{!-- Details Tab (for custom data) --}}
-            <div class="tab" data-tab="details" data-group="primary">
-                <div class="flexrow">
-                    <label>{{localize "DUSTPERADOS.ItemValue"}}</label>
-                    <input type="number" name="system.value" value="{{item.system.value}}" data-dtype="Number"/>
-                </div>
-
-                {{!-- Weapon-specific fields --}}
-                {{#if (eq item.type "weapon")}}
-                <div class="flexrow">
-                    <label>{{localize "DUSTPERADOS.WeaponDamage"}}</label>
-                    <input type="text" name="system.damage" value="{{item.system.damage}}" data-dtype="String"/>
-                </div>
-                <div class="flexrow">
-                    <label>{{localize "DUSTPERADOS.WeaponRange"}}</label>
-                    <input type="text" name="system.range" value="{{item.system.range}}" data-dtype="String"/>
-                </div>
-                {{/if}}
-
-                {{!-- Equipment-specific fields --}}
-                {{#if (eq item.type "equipment")}}
-                <div class="flexrow">
-                    <label>{{localize "DUSTPERADOS.EquipmentWeight"}}</label>
-                    <input type="number" name="system.weight" value="{{item.system.weight}}" data-dtype="Number"/>
-                </div>
-                <div class="flexrow">
-                    <label>{{localize "DUSTPERADOS.EquipmentQuantity"}}</label>
-                    <input type="number" name="system.quantity" value="{{item.system.quantity}}" data-dtype="Number"/>
-                </div>
-                {{/if}}
-
-            </div>
+<div class="tab" data-tab="details" data-group="primary">
+    <div class="flexrow">
+        <label>{{localize "DUSTPERADOS.ItemValue"}}</label>
+        <input type="number" name="system.value" value="{{item.system.value}}" data-dtype="Number" />
+    </div>
+    {{!-- Weapon-specific fields --}}
+    {{#if (eq item.type "weapon")}}
+    <div class="flexrow">
+        <label>{{localize "DUSTPERADOS.WeaponDamage"}}</label>
+        <input type="text" name="system.damage" value="{{item.system.damage}}" data-dtype="String" />
+    </div>
+    <div class="flexrow">
+        <label>{{localize "DUSTPERADOS.WeaponRange"}}</label>
+        <input type="text" name="system.range" value="{{item.system.range}}" data-dtype="String" />
+    </div>
+    {{/if}}
+    {{!-- Equipment-specific fields --}}
+    {{#if (eq item.type "equipment")}}
+    <div class="flexrow">
+        <label>{{localize "DUSTPERADOS.EquipmentWeight"}}</label>
+        <input type="number" name="system.weight" value="{{item.system.weight}}" data-dtype="Number" />
+    </div>
+    <div class="flexrow">
+        <label>{{localize "DUSTPERADOS.EquipmentQuantity"}}</label>
+        <input type="number" name="system.quantity" value="{{item.system.quantity}}" data-dtype="Number" />
+    </div>
+    {{/if}}
+</div>
