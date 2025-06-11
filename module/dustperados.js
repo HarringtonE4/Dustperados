@@ -1,7 +1,7 @@
 // Dustperados/module/dustperados.js
 
 import { DustperadosActorSheet } from "./sheets/actor-sheet.js";
-import { DustperadosItemSheet } from "./sheets/item-sheet.js"; // NEW Import
+import { DustperadosItemSheet } from "./sheets/item-sheet.js";
 
 /**
  * Foundry VTT is initialized.
@@ -10,30 +10,32 @@ import { DustperadosItemSheet } from "./sheets/item-sheet.js"; // NEW Import
 Hooks.once("init", async function() {
     console.log("Dustperados | Initializing Dustperados System");
 
-    // Register Actor Sheets
-    Actors.registerSheet("dustperados", DustperadosActorSheet, {
+    // Register Actor Sheets using game.actors
+    game.actors.registerSheet("dustperados", DustperadosActorSheet, {
         types: ["character"],
         makeDefault: true,
         label: "DUSTPERADOS.SheetTitleCharacter"
     });
-    Actors.registerSheet("dustperados", DustperadosActorSheet, {
+    game.actors.registerSheet("dustperados", DustperadosActorSheet, {
         types: ["npc"],
         makeDefault: false,
         label: "DUSTPERADOS.SheetTitleNPC"
     });
 
-    // --- NEW: Register Item Sheets ---
-    Items.registerSheet("dustperados", DustperadosItemSheet, {
-        types: ["weapon", "equipment"], // Apply this sheet to specific item types
-        makeDefault: true,   // Make this the default sheet for these item types
-        label: "DUSTPERADOS.SheetTitleItem" // Localization key for the item sheet title
+    // Register Item Sheets using game.items
+    game.items.registerSheet("dustperados", DustperadosItemSheet, {
+        types: ["weapon", "equipment"],
+        makeDefault: true,
+        label: "DUSTPERADOS.SheetTitleItem"
     });
-    // You can register more specific sheets later, e.g.:
-    // Items.registerSheet("dustperados", DustperadosWeaponSheet, { types: ["weapon"], makeDefault: true, label: "DUSTPERADOS.SheetTitleWeapon" });
-    // --- END NEW ---
 
-    // IMPORTANT: templatePaths for actor-inventory.html is REMOVED here.
-    // If you add other partials in the future, list them here if you want to use loadTemplates:
-    const templatePaths = [];
-    await loadTemplates(templatePaths);
+    // We will keep this as an empty array for now as you don't have partials defined
+    const templatePaths = []; 
+    await foundry.applications.handlebars.loadTemplates(templatePaths); 
+});
+
+// This hook fires BEFORE an Actor document is created
+Hooks.on("preCreateActor", (document, data, options, userId) => {
+    console.log("Dustperados | preCreateActor Hook - Initial Data:", data);
+    console.log("Dustperados | preCreateActor Hook - Actor System Data:", data.system);
 });
