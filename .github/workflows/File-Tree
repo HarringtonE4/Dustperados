@@ -1,0 +1,49 @@
+File-Tree
+
+Dustperados/
+├── .github/                       # GitHub specific configurations (e.g., workflows)
+│   └── workflows/
+│       └── release.yml
+├── css/                           # All CSS files for your system
+│   ├── dustperados.css            # Main system stylesheet
+│   └── forms.css                  # Styles for forms (e.g., input fields)
+│   └── lib/                       # Third-party CSS libraries (if any)
+├── fonts/                         # Custom fonts for your system (if any)
+├── img/                           # Images used by your system (icons, backgrounds)
+│   ├── actors/                    # Actor-specific images (e.g., default token image)
+│   ├── items/                     # Item-specific images
+│   └── system/                    # General system images
+├── lang/                          # Localization files for different languages
+│   └── en.json                    # English translations for your system strings
+├── module/                        # All JavaScript modules for your system
+│   ├── dustperados.js             # Main system entry point (initializes everything)
+│   ├── config.js                  # System-wide configuration (e.g., global constants, actor types)
+│   ├── settings.js                # Game settings registration
+│   ├── templates.js               # Handlebars template preloading
+│   ├── chat.js                    # Logic for chat messages and roll cards
+│   ├── dice.js                    # Custom dice rolling logic or dice definitions
+│   ├── documents/                 # Custom Document classes (for V10+ systems)
+│   │   ├── actor.js               # Custom Actor Document class
+│   │   └── item.js                # Custom Item Document class
+│   └── sheets/                    # JavaScript classes for custom sheets
+│       ├── sheets.js              # Central file to register all custom sheets
+│       ├── dustperados-actor-sheet.js # Your custom Actor sheet class
+│       └── dustperados-item-sheet.js  # Your custom Item sheet class
+├── packs/                         # Compendium packs for items, actors, journal entries, etc.
+│   ├── items.db                   # Database for common items
+│   ├── abilities.db               # Database for pre-defined abilities (if you have them)
+│   └── spells.db                  # Database for spells (if applicable)
+├── templates/                     # Handlebars HTML templates for sheets, chat cards, etc.
+│   ├── actor/                     # Actor sheet templates
+│   │   ├── dustperados-actor-sheet.html # Main actor sheet HTML template
+│   │   └── parts/                 # Partial templates for reuse within actor sheet
+│   │       ├── actor-header.html
+│   │       └── actor-abilities.html # A partial for your abilities section
+│   ├── item/                      # Item sheet templates
+│   │   └── dustperados-item-sheet.html
+│   └── chat/                      # Chat card templates
+│       └── roll-card.html
+├── system.json                    # Your system's manifest file
+├── template.json                  # Data model definitions for actors, items (if used)
+├── README.md                      # Your system's README file
+└── .gitignore                     # Files and folders to ignore in Git

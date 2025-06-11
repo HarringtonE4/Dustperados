@@ -11,15 +11,13 @@
             "value": ""
           },
           "abilities": {
-            "strength": { "value": 0, "label": "DUSTPERADOS.AbilityStr" },
-            "dexterity": { "value": 0, "label": "DUSTPERADOS.AbilityDex" },
-            "constitution": { "value": 0, "label": "DUSTPERADOS.AbilityCon" },
-            "intelligence": { "value": 0, "label": "DUSTPERADOS.AbilityInt" },
-            "wisdom": { "value": 0, "label": "DUSTPERADOS.AbilityWis" },
-            "charisma": { "value": 0, "label": "DUSTPERADOS.AbilityCha" }
+            "brawn": { "value": 0, "label": "DUSTPERADOS.Brawn" },
+            "quickness": { "value": 0, "label": "DUSTPERADOS.Quickness" },
+            "resolve": { "value": 0, "label": "DUSTPERADOS.Resolve" },
+            "charm": { "value": 0, "label": "DUSTPERADOS.Charm" },
+            "wits": { "value": 0, "label": "DUSTPERADOS.Wit" }
           },
           "hitLocations": {
-<<<<<<< HEAD
             "head": { "value": 0, "max": 0, "label": "DUSTPERADOS.Actor.HitLocations.Head" },
             "body": { "value": 0, "max": 0, "label": "DUSTPERADOS.Actor.HitLocations.Body" },
             "leftArm": { "value": 0, "max": 0, "label": "DUSTPERADOS.Actor.HitLocations.LeftArm" },
@@ -29,13 +27,9 @@
             "defense": { "value": 0, "label": "DUSTPERADOS.Actor.HitLocations.Defense" }
           },
           "damageStatus": {
-            "graze": { "type": "Number", "value": 7 },
-            "hit": { "type": "Number", "value": 14 },
-            "crit": { "type": "Number", "value": 20 }
-=======
-            "head": { "hp": 0, "label": "DUSTPERADOS.HitLocationHead" },
-            "body": { "hp": 0, "label": "DUSTPERADOS.HitLocationBody" }
->>>>>>> parent of 4a25977 (Trying to add attributes)
+            "graze": { "type": "Number", "value": 0 },
+            "hit": { "type": "Number", "value": 0 },
+            "crit": { "type": "Number", "value": 0 }
           }
         }
       },
@@ -77,15 +71,9 @@
       "equipment": {
         "templates": ["common"],
         "weight": {
-<<<<<<< HEAD
           "type": "Number",
           "label": "DUSTPERADOS.Item.Equipment.Weight",
           "value": 0
-=======
-            "type": "String",
-            "label": "DUSTPERADOS.EquipmentWeight",
-            "value": "0"
->>>>>>> parent of 4a25977 (Trying to add attributes)
         },
         "quantity": {
           "type": "Number",
