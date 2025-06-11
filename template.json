@@ -65,7 +65,7 @@
         "range": {
           "type": "String",
           "label": "DUSTPERADOS.Item.Weapon.Range",
-          "value": ""
+          "value": "30"
         }
       },
       "equipment": {
@@ -73,12 +73,12 @@
         "weight": {
           "type": "Number",
           "label": "DUSTPERADOS.Item.Equipment.Weight",
-          "value": 0
+          "value": "0"
         },
         "quantity": {
           "type": "Number",
           "label": "DUSTPERADOS.Item.Equipment.Quantity",
-          "value": 1
+          "value": "1"
         }
       }
     }
