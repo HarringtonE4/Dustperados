@@ -1,4 +1,5 @@
 {
+<<<<<<< HEAD
   "DUSTPERADOS": {
     "System": {
       "Name": "Dustperados"
@@ -76,4 +77,58 @@
       "EnableFancyFeatureHint": "Turn this on for a fancy experience!"
     }
   }
+=======
+  "DUSTPERADOS.SystemName": "Dustperados",
+  "DUSTPERADOS.ActorTypeCharacter": "Character",
+  "DUSTPERADOS.ItemTypeWeapon": "Weapon",
+  "DUSTPERADOS.SheetHeaderAbilities": "Abilities",
+  "DUSTPERADOS.SheetHeaderSkills": "Skills",
+  "DUSTPERADOS.ActorNamePlaceholder": "Character Name",
+  "DUSTPERADOS.ItemNamePlaceholder": "Item Name",
+  "DUSTPERADOS.Description": "Description",
+  "DUSTPERADOS.Items": "Items",
+  "DUSTPERADOS.ItemName": "Name",
+  "DUSTPERADOS.ItemCreateEquipment": "Add Equipment",
+  "DUSTPERADOS.AddItem": "Add Item",
+  "DUSTPERADOS.Weapon": "Weapon",
+  "DUSTPERADOS.Equipment": "Equipment",
+  "DUSTPERADOS.EditItem": "Edit Item",
+  "DUSTPERADOS.DeleteItem": "Delete Item",
+
+  "DUSTPERADOS.Details": "Details",
+  "DUSTPERADOS.ItemValue": "Value",
+  "DUSTPERADOS.WeaponDamage": "Damage",
+  "DUSTPERADOS.WeaponRange": "Range",
+  "DUSTPERADOS.EquipmentWeight": "Weight",
+  "DUSTPERADOS.EquipmentQuantity": "Quantity",
+  "DUSTPERADOS.SheetTitleItem": "Item Sheet",
+  
+  "DUSTPERADOS.WeaponDetails": "Weapon Details",
+  "DUSTPERADOS.EquipmentDetails": "Equipment Details",
+  "DUSTPERADOS.Damage": "Damage",
+  "DUSTPERADOS.Range": "Range",
+  "DUSTPERADOS.Rarity": "Rarity",
+  "DUSTPERADOS.SettingName": "My Test Setting",
+  "DUSTPERADOS.SettingHint": "This is a test setting for Dustperados.",
+  "DUSTPERADOS.EnableFancyFeature": "Enable Fancy Feature",
+  "DUSTPERADOS.EnableFancyFeatureHint": "Turn this on for a fancy experience!",
+
+  "DUSTPERADOS.Brawn": "Brawn",
+  "DUSTPERADOS.Quickness": "Quickness",
+  "DUSTPERADOS.Resolve": "Resolve",
+  "DUSTPERADOS.Charm": "Charm",
+  "DUSTPERADOS.Wit": "Wit",
+
+  "DUSTPERADOS.HitLocations": "Hit Locations",
+  "DUSTPERADOS.Head": "Head",
+  "DUSTPERADOS.Body": "Body",
+  "DUSTPERADOS.LeftArm": "Left Arm",
+  "DUSTPERADOS.RightArm": "Right Arm",
+  "DUSTPERADOS.LeftLeg": "Left Leg",
+  "DUSTPERADOS.RightLeg": "Right Leg",
+
+  "DUSTPERADOS.SheetTitleCharacter": "Dustperados Character Sheet",
+  "DUSTPERADOS.SheetTitleNPC": "Dustperados NPC Sheet"
+
+>>>>>>> parent of 4a25977 (Trying to add attributes)
 }
