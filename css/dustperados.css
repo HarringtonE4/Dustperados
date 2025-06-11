@@ -1,376 +1,393 @@
-/* BASE STYLES & FONT */
-@import url('https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:wght@400;700&display=swap'); /* A clean, mono-spaced font, similar to OSE feel */
-
+/* Base Styles for the Dustperados System Sheet */
 .dustperados.sheet.actor {
-    font-family: 'IBM Plex Mono', monospace; /* Apply to the whole sheet */
-    background: #fdfaf5; /* Light cream background */
-    color: #333; /* Dark grey text */
-}
-
-/* Basic input styling */
-.dustperados.sheet input[type="text"],
-.dustperados.sheet input[type="number"] {
-    background: #fff;
+    min-width: 700px; /* Slightly wider to accommodate columns */
+    min-height: 700px; /* Adjust height as needed */
+    background: #f0f0e0; /* Light background for the sheet */
     border: 1px solid #ccc;
-    padding: 2px 4px;
-    font-size: 14px;
-    line-height: 1.4;
-    font-family: 'IBM Plex Mono', monospace;
-    box-shadow: inset 0 1px 2px rgba(0,0,0,0.1);
-    -webkit-appearance: none; /* For consistent styling across browsers */
-    -moz-appearance: textfield; /* For Firefox */
+    box-shadow: 0 0 15px rgba(0, 0, 0, 0.2);
+    border-radius: 8px;
+    overflow: hidden; /* Ensures content stays within rounded corners */
 }
 
-.dustperados.sheet input[type="number"]::-webkit-inner-spin-button,
-.dustperados.sheet input[type="number"]::-webkit-outer-spin-button {
-    -webkit-appearance: none;
-    margin: 0;
+.dustperados.sheet .window-content {
+    display: flex;
+    flex-direction: column;
+    height: 100%;
+    padding: 0; /* Remove default padding to let sections manage their own */
+    font-family: 'Inter', sans-serif; /* Recommended font */
+    color: #333;
 }
 
-/* SECTION BLOCKS */
-.dustperados.sheet .section-block {
-    background: #ffffff;
-    border: 1px solid #ccc;
-    padding: 10px;
-    margin-bottom: 15px; /* Spacing between blocks */
-    box-shadow: 2px 2px 5px rgba(0,0,0,0.1);
-    border-radius: 3px;
-}
-
-.dustperados.sheet .section-block h3 {
-    font-size: 1.2em;
-    text-align: center;
-    border-bottom: 1px solid #ddd;
-    padding-bottom: 5px;
-    margin-top: 0;
-    margin-bottom: 10px;
-    color: #555;
-}
-
-/* HEADER */
+/* Sheet Header */
 .dustperados.sheet .sheet-header {
     display: flex;
     flex-direction: column;
     align-items: center;
-    padding: 0px 0;
-    background: #e8e4db; /* Slightly darker header background */
-    border-bottom: 1px solid #ccc;
-    margin-bottom: 0px;
-    height: 80px !important;
+    padding: 15px 20px;
+    background: linear-gradient(to right, #5c3a26, #7a4e33); /* Warm, dusty gradient */
+    color: #fff;
+    border-bottom: 2px solid #3d2a1b;
+    gap: 10px;
+    position: relative;
+    z-index: 1; /* Ensure header is above other elements if needed */
 }
 
 .dustperados.sheet .profile-section {
     display: flex;
     align-items: center;
-    gap: 0px;
-    margin-bottom: 5px;
+    width: 100%;
+    gap: 20px;
 }
 
 .dustperados.sheet .profile-img {
-    flex: 0 0 80px; /* Fixed size for image */
-    height: 80px;
-    border: 2px solid #aaa;
-    border-radius: 5px;
+    flex: 0 0 100px; /* Fixed size for profile image */
+    height: 100px;
+    border: 3px solid #f0f0e0; /* Border matches sheet background */
+    border-radius: 50%; /* Circular profile image */
     object-fit: cover;
+    box-shadow: 0 0 8px rgba(0, 0, 0, 0.3);
+}
+
+.dustperados.sheet .charname-wrapper {
+    flex-grow: 1;
+    display: flex;
+    justify-content: center; /* Center the name */
 }
 
 .dustperados.sheet .charname-wrapper input {
-    font-size: 1.5em;
+    width: 100%;
+    font-size: 2.2em;
     font-weight: bold;
     text-align: center;
     border: none;
     background: none;
-    border-bottom: 1px dashed #999; /* Dotted line under name */
-    padding: 2px 0;
-    width: 100%;
+    color: #fff;
+    padding: 0;
+    margin: 0;
+    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5); /* Add text shadow for readability */
 }
 
-/* SHEET BODY - MAIN LAYOUT */
-.dustperados.sheet .sheet-body {
+.dustperados.sheet .header-resources {
     display: flex;
-    flex-direction: row; /* Default for larger screens */
-    padding: 0 15px 15px; /* Note: Top padding is already 0 here */
-    gap: 15px; /* Spacing between left and right panels */
-    overflow-y: auto; /* Allow scrolling for main content */
-
-    flex-grow: 1; /* ADD THIS LINE: Makes the sheet-body take up all remaining vertical space */
+    justify-content: space-around;
+    width: 100%;
+    margin-top: 10px;
 }
 
-/* Also, let's explicitly make the form a flex container if it's not already,
-   though it usually is by default for Foundry sheets */
-.dustperados.sheet.actor {
-    /* Existing properties... */
+.dustperados.sheet .resource {
     display: flex;
     flex-direction: column;
-}
-
-/* ABILITIES SECTION */
-.dustperados.sheet .abilities-grid {
-    display: grid;
-    grid-template-columns: repeat(2, 1fr); /* Two columns for abilities */
-    gap: 10px;
-}
-
-.dustperados.sheet .ability-item {
-    display: flex;
     align-items: center;
-    justify-content: space-between;
-    padding: 5px;
-    border: 1px solid #eee; /* Subtle border for each ability */
-    background: #fcfafa;
-    border-radius: 3px;
+    font-size: 0.9em;
 }
 
-.dustperados.sheet .ability-item label {
+.dustperados.sheet .resource label {
     font-weight: bold;
-    flex-grow: 1;
-    margin-right: 5px;
-    text-align: left;
-}
-
-.dustperados.sheet .ability-item input {
-    width: 50px; /* Fixed width for ability score input */
-    text-align: center;
-}
-
-/* HIT LOCATIONS SECTION */
-.dustperados.sheet .hit-locations-grid {
-    display: grid;
-    grid-template-columns: 1fr; /* Default to single column */
-    gap: 8px;
-    justify-items: center;
-}
-
-.dustperados.sheet .hit-location-item {
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
-    border: 1px solid #ccc;
-    padding: 5px 10px;
-    width: 90%; /* Adjust width for visual appeal */
-    max-width: 250px;
-    background: #fcfafa;
-    border-radius: 3px;
-}
-
-.dustperados.sheet .hit-location-item label {
-    font-weight: bold;
-    margin-right: 5px;
+    margin-bottom: 3px;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+    color: #fcefdc; /* Lighter text for labels */
 }
 
 .dustperados.sheet .hp-input-group {
     display: flex;
-    flex-direction: column;
     align-items: center;
-    gap: 0px;
+    gap: 5px;
+    background: rgba(255, 255, 255, 0.15); /* Slightly transparent background */
+    border: 1px solid rgba(0, 0, 0, 0.2);
+    border-radius: 5px;
+    padding: 3px 8px;
 }
 
 .dustperados.sheet .hp-input-group input {
-    width: 40px; /* Smaller inputs for HP values */
+    width: 45px;
     text-align: center;
+    background: none;
+    border: none;
+    color: #fff;
+    font-size: 1.1em;
+    padding: 0;
 }
 
 .dustperados.sheet .hp-input-group span {
+    color: #fff;
     font-weight: bold;
+}
+
+/* Sheet Body - Main Content Area */
+.dustperados.sheet .sheet-body {
+    display: flex;
+    flex-grow: 1; /* Allow body to take remaining vertical space */
+    padding: 15px 20px;
+    gap: 20px; /* Space between left and right panels */
+}
+
+.dustperados.sheet .left-panel,
+.dustperados.sheet .right-panel {
+    display: flex;
+    flex-direction: column;
+    gap: 20px; /* Space between sections within each panel */
+    padding: 0; /* No padding on panels themselves, sections have it */
+}
+
+.dustperados.sheet .left-panel {
+    flex: 1; /* Left panel takes equal space */
+    min-width: 300px; /* Ensure it doesn't get too small */
+}
+
+.dustperados.sheet .right-panel {
+    flex: 1.5; /* Right panel is a bit wider to hold items and description */
+    min-width: 350px; /* Ensure it doesn't get too small */
+}
+
+/* General Section Block Styling */
+.dustperados.sheet .section-block {
+    background: #e7dbbf; /* Lighter background for content blocks */
+    border: 1px solid #c9b99b;
+    border-radius: 5px;
+    padding: 15px;
+    box-shadow: inset 0 1px 3px rgba(0,0,0,0.1);
+}
+
+.dustperados.sheet .section-block h3 {
+    margin-top: 0;
+    color: #5c3a26;
+    border-bottom: 1px solid #c9b99b;
+    padding-bottom: 8px;
+    margin-bottom: 15px;
+    text-transform: uppercase;
     font-size: 1.1em;
-    color: #777;
-    margin: -5px 0; */
+    letter-spacing: 0.5px;
+    text-align: center;
 }
 
-/* Manual positioning for a more "stick figure" feel */
-.dustperados.sheet .head-location { grid-area: head; }
-.dustperados.sheet .arm-left-location { grid-area: arm-left; }
-.dustperados.sheet .arm-right-location { grid-area: arm-right; }
-.dustperados.sheet .body-location { grid-area: body; }
-.dustperados.sheet .def-location { grid-area: def; } /* Defense is often central */
-.dustperados.sheet .leg-left-location { grid-area: leg-left; }
-.dustperados.sheet .leg-right-location { grid-area: leg-right; }
-
-/* Layout for hit locations (adjust as needed for desired "stick figure" shape) */
-@media (min-width: 600px) { /* Apply a grid layout for larger sheets */
-    .dustperados.sheet .hit-locations-grid {
-        display: grid;
-        grid-template-columns: 1fr 1.5fr 1fr; /* Left limb, Body/Head/Def, Right limb */
-        grid-template-areas:
-            ". head ."
-            "arm-left body arm-right"
-            ". def ."
-            "leg-left . leg-right";
-        gap: 5px 10px; /* Vertical and horizontal gap */
-        width: 100%;
-        max-width: 400px; /* Constrain overall width */
-        margin: auto; /* Center the grid */
-    }
-
-    .dustperados.sheet .hit-location-item {
-        width: auto; /* Let grid control width */
-        max-width: none;
-    }
-
-    /* Adjust specific items for layout */
-    .dustperados.sheet .head-location {
-        grid-column: 2 / 3; /* Center in middle column */
-        justify-self: center;
-    }
-    .dustperados.sheet .arm-left-location {
-        justify-self: end; /* Align to right of its cell */
-    }
-    .dustperados.sheet .arm-right-location {
-        justify-self: start; /* Align to left of its cell */
-    }
-    .dustperados.sheet .body-location {
-        grid-column: 2 / 3;
-        justify-self: center;
-    }
-    .dustperados.sheet .def-location {
-        grid-column: 2 / 3;
-        justify-self: center;
-    }
-    .dustperados.sheet .leg-left-location {
-        justify-self: end;
-    }
-    .dustperados.sheet .leg-right-location {
-        justify-self: start;
-    }
+/* Abilities Grid */
+.dustperados.sheet .abilities-grid {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr); /* Two columns for abilities */
+    gap: 10px;
+    /* For 5 abilities, 3 in first row, 2 in second if 2 columns. Adjust grid as needed. */
+    /* Example for 5 abilities in 2 columns: */
+    /* grid-template-columns: repeat(auto-fit, minmax(120px, 1fr)); */
 }
 
+.dustperados.sheet .ability-item {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    background: #f5f0e6; /* Even lighter background for individual items */
+    border: 1px solid #d4c8b0;
+    border-radius: 5px;
+    padding: 8px 5px;
+    box-shadow: 0 1px 2px rgba(0,0,0,0.1);
+}
 
-/* DAMAGE STATUS SECTION */
+.dustperados.sheet .ability-label {
+    font-weight: bold;
+    margin-bottom: 5px;
+    text-transform: uppercase;
+    font-size: 0.9em;
+    color: #4a2e1d;
+}
+
+.dustperados.sheet .ability-item input {
+    width: 60px; /* Fixed width for ability input */
+    text-align: center;
+    padding: 5px;
+    border: 1px solid #aaa;
+    border-radius: 4px;
+    background: #fff;
+    font-size: 1.1em;
+}
+
+/* Hit Locations Grid */
+.dustperados.sheet .hit-locations-grid {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr); /* Adjust based on desired layout */
+    gap: 10px;
+}
+
+.dustperados.sheet .hit-location-item {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    background: #f5f0e6;
+    border: 1px solid #d4c8b0;
+    border-radius: 5px;
+    padding: 8px 5px;
+    box-shadow: 0 1px 2px rgba(0,0,0,0.1);
+}
+
+.dustperados.sheet .hit-location-item label {
+    font-weight: bold;
+    margin-bottom: 5px;
+    text-transform: uppercase;
+    font-size: 0.85em;
+    color: #4a2e1d;
+}
+
+.dustperados.sheet .hit-location-item input {
+    width: 45px;
+    text-align: center;
+    padding: 3px;
+    border: 1px solid #aaa;
+    border-radius: 3px;
+    background: #fff;
+}
+
+/* Damage Status Grid */
 .dustperados.sheet .damage-status-grid {
     display: flex;
     justify-content: space-around;
     gap: 10px;
-    flex-wrap: wrap; /* Allow wrapping on smaller screens */
+    padding-top: 5px;
 }
 
 .dustperados.sheet .status-item {
     display: flex;
-    flex-direction: column; /* Stack label above input */
+    flex-direction: column;
     align-items: center;
-    border: 1px solid #ccc;
-    padding: 5px;
-    background: #fcfafa;
-    border-radius: 3px;
-    min-width: 70px; /* Ensure some width */
+    font-size: 0.9em;
+    background: #f5f0e6;
+    border: 1px solid #d4c8b0;
+    border-radius: 5px;
+    padding: 8px 10px;
+    box-shadow: 0 1px 2px rgba(0,0,0,0.1);
 }
 
 .dustperados.sheet .status-item label {
     font-weight: bold;
-    margin-bottom: 5px;
-    font-size: 0.9em;
+    margin-top: 5px;
+    color: #4a2e1d;
+}
+
+.dustperados.sheet .status-item input {
+    width: 50px;
     text-align: center;
+    padding: 5px;
+    border: 1px solid #aaa;
+    border-radius: 4px;
+    background: #fff;
+    font-size: 1.1em;
 }
 
-.dustperados.sheet .status-item input[type="number"] {
-    width: 50px; /* Small input for damage status */
-    text-align: center;
+
+/* Inventory Section */
+.dustperados.sheet .inventory-section {
+    flex-grow: 1; /* Allow inventory to expand and fill space */
+    display: flex;
+    flex-direction: column; /* Stack internal elements */
 }
 
-/* DESCRIPTION SECTION */
-.dustperados.sheet .description-section .editor {
-    height: auto; /* Allow editor to grow */
-    min-height: 200px; /* Minimum height for the editor */
-    border: 1px solid #ccc;
-    box-shadow: inset 0 1px 2px rgba(0,0,0,0.1);
-    border-radius: 3px;
-}
-
-/* INVENTORY SECTION */
-.dustperados.sheet .inventory-section #inventory-content-container {
-    /* This container will hold the content injected from actor-inventory.html */
-    /* Basic styling for the container */
-    min-height: 300px; /* Give it some space */
-    /* No specific border here, as the section-block already provides one */
-}
-
-/* Override Foundry's default item list styles (from actor-inventory.html) */
-.dustperados.sheet ol.items-list {
+.dustperados.sheet .item-list {
     list-style: none;
     padding: 0;
     margin: 0;
+    flex-grow: 1; /* Allow the list to take available height */
+    overflow-y: auto; /* Enable scrolling for many items */
 }
 
-.dustperados.sheet .items-list .item-header {
-    font-weight: bold;
-    border-bottom: 1px solid #ccc;
-    padding: 5px 0;
-    display: flex;
-    line-height: 20px;
-    align-items: center;
-    margin-bottom: 5px;
-}
-
-.dustperados.sheet .items-list .item {
+.dustperados.sheet .item {
     display: flex;
     align-items: center;
-    border-bottom: 1px dotted #eee;
-    padding: 5px 0;
+    padding: 8px 0;
+    border-bottom: 1px dashed #c9b99b;
 }
 
-.dustperados.sheet .items-list .item-name {
-    flex: 1;
-    font-weight: bold;
+.dustperados.sheet .item:last-child {
+    border-bottom: none;
 }
 
-.dustperados.sheet .items-list .item-controls {
-    flex: 0 0 auto;
-    display: flex;
-    gap: 5px;
-}
-
-.dustperados.sheet .items-list .item-controls a {
-    font-size: 14px;
-    color: #777;
-}
-
-.dustperados.sheet .items-list .item-controls a:hover {
-    color: #f75d59; /* A subtle hover color */
-}
-
-.dustperados.sheet .item-buttons {
-    display: flex;
-    justify-content: flex-end;
-    gap: 10px;
-    padding-top: 10px;
-    border-top: 1px dotted #eee;
-    margin-top: 10px;
-}
-
-.dustperados.sheet .item-buttons button {
-    background: #4CAF50; /* Green button */
-    color: white;
-    border: none;
-    padding: 8px 12px;
+.dustperados.sheet .item-img {
+    flex: 0 0 24px;
+    height: 24px;
+    margin-right: 10px;
     border-radius: 3px;
+}
+
+.dustperados.sheet .item-name {
+    flex-grow: 1;
+    margin: 0;
+    font-weight: bold;
+    color: #5c3a26;
+}
+
+.dustperados.sheet .item-controls {
+    display: flex;
+    gap: 8px;
+}
+
+.dustperados.sheet .item-control {
+    font-size: 0.9em;
+    color: #777;
     cursor: pointer;
-    font-family: 'IBM Plex Mono', monospace;
+    transition: color 0.2s ease;
 }
 
-.dustperados.sheet .item-buttons button:hover {
-    background: #45a049;
+.dustperados.sheet .item-control:hover {
+    color: #000;
 }
 
-/* Responsive Adjustments */
-@media (max-width: 768px) {
-    .dustperados.sheet .sheet-body {
-        flex-direction: column; /* Stack panels vertically on small screens */
-    }
-    .dustperados.sheet .left-panel,
-    .dustperados.sheet .right-panel {
-        min-width: unset; /* Remove min-width constraint */
-        width: 100%;
-    }
+.dustperados.sheet .item-controls-buttons {
+    display: flex;
+    justify-content: center;
+    gap: 15px;
+    margin-top: 15px;
 }
-/* Override for 'layer compatibility.base' display: flex */
-.dustperados.sheet.actor .window-content {
-    /* Keep these from previous steps, they are important */
-    height: auto !important;
-    min-height: unset !important;
 
-    /* Add or modify these to disable flex or change its behavior */
-    display: block !important; /* Change display from flex to block */
-    /* If display: block causes layout issues, try: */
-    /* flex-direction: column !important; */ /* Or explicitly set flex direction */
-    /* justify-content: flex-start !important; */ /* Or set content alignment */
-    /* align-items: flex-start !important; */ /* Or set item alignment */
+.dustperados.sheet .item-controls-buttons .item-control {
+    background: #5c3a26;
+    color: #fff;
+    padding: 8px 15px;
+    border-radius: 5px;
+    text-decoration: none;
+    font-weight: bold;
+    transition: background-color 0.2s ease, box-shadow 0.2s ease;
+    box-shadow: 0 2px 4px rgba(0,0,0,0.2);
+}
+
+.dustperados.sheet .item-controls-buttons .item-control:hover {
+    background: #7a4e33;
+    box-shadow: 0 4px 8px rgba(0,0,0,0.3);
+}
+
+
+/* Description Section */
+.dustperados.sheet .description-section {
+    flex-grow: 1; /* Allow description to grow and fill remaining vertical space */
+    display: flex;
+    flex-direction: column; /* Stack header and editor */
+}
+
+.dustperados.sheet .editor {
+    flex-grow: 1; /* Editor takes up remaining vertical space */
+    min-height: 150px; /* Minimum height for the editor */
+    border: 1px solid #ccc;
+    background: #fff;
+    border-radius: 4px;
+    overflow: hidden; /* Important for editor's internal scrolling */
+}
+
+/* Ensure the TinyMCE editor fits within its container */
+.dustperados.sheet .tox-tinymce {
+    border: none !important;
+}
+
+/* General Input Styles */
+.dustperados.sheet input[type="text"],
+.dustperados.sheet input[type="number"] {
+    background: #fff;
+    border: 1px solid #ccc;
+    padding: 6px 8px;
+    border-radius: 4px;
+    box-shadow: inset 0 1px 2px rgba(0,0,0,0.1);
+    font-size: 1em;
+    color: #333;
+}
+
+.dustperados.sheet input[type="text"]:focus,
+.dustperados.sheet input[type="number"]:focus {
+    outline: none;
+    border-color: #a0d3ff;
+    box-shadow: 0 0 0 3px rgba(160, 211, 255, 0.4);
 }
