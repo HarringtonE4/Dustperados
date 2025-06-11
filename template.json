@@ -27,9 +27,9 @@
             "defense": { "value": 0, "label": "DUSTPERADOS.Actor.HitLocations.Defense" }
           },
           "damageStatus": {
-            "graze": { "type": "Boolean", "value": false },
-            "hit": { "type": "Boolean", "value": false },
-            "crit": { "type": "Boolean", "value": false }
+            "graze": { "type": "Number", "value": 7 },
+            "hit": { "type": "Number", "value": 14 },
+            "crit": { "type": "Number", "value": 20 }
           }
         }
       },

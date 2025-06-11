@@ -88,18 +88,12 @@
 /* SHEET BODY - MAIN LAYOUT */
 .dustperados.sheet .sheet-body {
     display: flex;
-    flex-direction: column; /* Default for larger screens */
+    flex-direction: row; /* Default for larger screens */
     padding: 0 15px 15px; /* Note: Top padding is already 0 here */
+    gap: 15px; /* Spacing between left and right panels */
     overflow-y: auto; /* Allow scrolling for main content */
-    flex-grow: 1; /* ADD THIS LINE: Makes the sheet-body take up all remaining vertical space */
-}
 
-/* NEW: Wrapper for the two main content columns */
-.dustperados.sheet .main-content-columns {
-    display: flex;
-    flex-direction: row; /* Arranges left and right panels side-by-side */
-    gap: 15px; /* Spacing between the left and right columns */
-    flex-grow: 1; /* Allows this wrapper to take up remaining vertical space in sheet-body */
+    flex-grow: 1; /* ADD THIS LINE: Makes the sheet-body take up all remaining vertical space */
 }
 
 /* Also, let's explicitly make the form a flex container if it's not already,
@@ -363,11 +357,8 @@
     }
     .dustperados.sheet .left-panel,
     .dustperados.sheet .right-panel {
-        flex: 1; /* Both panels take equal width */
-      min-width: 0; /* Allows them to shrink if window is very small, preventing overflow */
-      display: flex;
-      flex-direction: column; /* Stacks sections vertically within each panel */
-      gap: 15px; /* Spacing between sections (e.g., Hit Locations and Items) within each column */
+        min-width: unset; /* Remove min-width constraint */
+        width: 100%;
     }
 }
 /* Override for 'layer compatibility.base' display: flex */
