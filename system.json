@@ -23,21 +23,13 @@
         "name": "English",
         "path": "lang/en.json"
     }],
+    "template": "template.json",
     "documentTypes":
     {
         "Actor":
         {
             "common":
             {
-                "tokenBars": [
-                {
-                    "attribute": "hitLocations.body",
-                    "bar": "bar1"
-                },
-                {
-                    "attribute": "hitLocations.head",
-                    "bar": "bar2"
-                }]
             },
             "character":
             {

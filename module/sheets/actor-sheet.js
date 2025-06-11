@@ -13,6 +13,26 @@ export class DustperadosActorSheet extends ActorSheet {
             // tabs: [{ navSelector: ".sheet-tabs", contentSelector: ".sheet-body", initial: "description" }]
         });
     }
+    /** @override */
+    getData() {
+        const data = super.getData(); // Get the default data from the base ActorSheet
+
+        // Add actor.system to the data object for easier access in the template.
+        // This makes `actor.system.abilities` directly accessible as `data.actor.system.abilities`
+        // in the template.
+        // It's also common practice to put `actor.system` directly onto the `data` object
+        // for convenience if your system data is simple.
+        data.system = data.actor.system; 
+
+        // Specifically ensure abilities are readily available
+        // Foundry will typically put abilities under actor.system.abilities.
+        // We can make a direct reference for the loop to work correctly.
+        data.abilities = data.actor.system.abilities; // <-- ADD THIS LINE
+
+        console.log("Dustperados | Actor Sheet Data:", data); // Helpful for debugging
+
+        return data;
+    }
 
     // --- NEW: Helper methods for item management ---
 

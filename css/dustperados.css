@@ -173,13 +173,27 @@
 
 /* Abilities Grid */
 .dustperados.sheet .abilities-grid {
-    display: grid;
-    grid-template-columns: repeat(2, 1fr);
-    /* Two columns for abilities */
-    gap: 10px;
-    /* For 5 abilities, 3 in first row, 2 in second if 2 columns. Adjust grid as needed. */
-    /* Example for 5 abilities in 2 columns: */
-    /* grid-template-columns: repeat(auto-fit, minmax(120px, 1fr)); */
+    display: flex;             /* Change from grid to flex */
+    flex-direction: row;       /* Arrange items in a single row */
+    justify-content: space-around; /* Distributes items evenly with space around them */
+    align-items: flex-start;   /* Align items to the top if they have different heights */
+    gap: 10px;                 /* Adds space between the flex items */
+    padding: 10px;
+}
+
+/* Ensure individual ability items can shrink to fit */
+.dustperados.sheet .ability-item {
+    flex: 0 1 calc(20% - 8px); /* Allows 5 items per row with gap. Adjust 8px based on actual gap. */
+    min-width: 100px; /* Optional: Sets a minimum width for each ability box to prevent them from becoming too small */
+    /* Keep existing styling for appearance (background, border, padding, etc.) */
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    background: #f5f0e6;
+    border: 1px solid #d4c8b0;
+    border-radius: 5px;
+    padding: 8px 5px;
+    box-shadow: 0 1px 2px rgba(0, 0, 0, 0.1);
 }
 
 .dustperados.sheet .ability-item {
