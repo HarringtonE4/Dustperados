@@ -7,11 +7,22 @@ export class DustperadosActorSheet extends ActorSheet {
         return foundry.utils.mergeObject(super.defaultOptions, {
             classes: ["dustperados", "sheet", "actor"],
             template: "systems/dustperados/templates/actor-sheet.html",
-            width: 720, // Increased width for the two-column layout
-            height: 800, // Increased height for scrollability
+            width: 720,
+            height: 800,
             // Removed the 'tabs' definition since we're using a single-page layout
-            // tabs: [{ navSelector: ".sheet-tabs", contentSelector: ".sheet-body", initial: "description" }]
         });
+    }
+
+    /** @override */
+    getData() {
+        const data = super.getData();
+
+        data.system = data.actor.system; 
+        data.abilities = data.actor.system.abilities; 
+
+        console.log("Dustperados | Actor Sheet Data (after getData):", data);
+
+        return data;
     }
 
     // --- NEW: Helper methods for item management ---
@@ -24,18 +35,17 @@ export class DustperadosActorSheet extends ActorSheet {
     _onItemCreate(event) {
         event.preventDefault();
         const element = event.currentTarget;
-        const type = element.dataset.type; // Get data-type from the button
+        const type = element.dataset.type;
         if (!type) return;
 
-        // Prepare item data for creation
         const itemData = {
-            name: `New ${type.capitalize()}`, // e.g., "New Gear"
-            type: type, // Matches the type defined in your system.json (e.g., "gear", "weapon", "armor")
-            img: `icons/svg/${type}.svg` // Basic icon based on type
+            name: `New ${type.capitalize()}`,
+            type: type,
+            img: `icons/svg/${type}.svg`
         };
 
-        // Create the new Item document as a child of the Actor
-        return Item.create(itemData, {parent: this.actor});
+        // Create the new Item document as a child of the Actor, using game.items
+        return game.items.create(itemData, {parent: this.actor}); // <-- UPDATED: game.items.create
     }
 
     /**
@@ -48,7 +58,7 @@ export class DustperadosActorSheet extends ActorSheet {
         const element = event.currentTarget;
         const itemId = element.closest(".item").dataset.itemId;
         const item = this.actor.items.get(itemId);
-        item.sheet.render(true); // Render the item's sheet
+        item.sheet.render(true);
     }
 
     /**
@@ -61,7 +71,7 @@ export class DustperadosActorSheet extends ActorSheet {
         const element = event.currentTarget;
         const itemId = element.closest(".item").dataset.itemId;
         // Ask for confirmation before deleting
-        Dialog.confirm({
+        Dialog.confirm({ // Dialog is still a global, but typically handled by Foundry UI for systems.
             title: "Confirm Deletion",
             content: "Are you sure you want to delete this item?",
             yes: () => this.actor.deleteEmbeddedDocuments("Item", [itemId]),
