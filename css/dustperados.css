@@ -457,3 +457,98 @@
     border-color: #a0d3ff;
     box-shadow: 0 0 0 3px rgba(160, 211, 255, 0.4);
 }
+/* ============================= */
+/* === Item Sheet Styles === */
+/* ============================= */
+
+/* Apply the base actor sheet background and dimensions to the item sheet */
+.dustperados.sheet.item {
+  min-width: 550px;
+  min-height: 500px;
+  background: #f0f0e0; /* Same as actor sheet */
+}
+
+/* Ensure the main sheet body on the item sheet has a vertical layout */
+.dustperados.sheet.item .sheet-body {
+  flex-direction: column;
+}
+
+/* Make the item sheet description take up remaining space */
+.dustperados.sheet.item .description-section {
+  flex-grow: 1;
+  display: flex;
+  flex-direction: column;
+}
+
+.dustperados.sheet.item .description-section .editor {
+  flex-grow: 1;
+  padding: 5px;
+  background: #fff;
+  border: 1px solid #c9b99b;
+  border-radius: 3px;
+}
+
+.dustperados.sheet.item .description-section .editor textarea {
+  width: 100%;
+  height: 100%;
+  border: none;
+  resize: none;
+  background: none;
+}
+
+/* New grid for the item stats at the top */
+.dustperados.sheet.item .stats-grid {
+  display: flex;
+  justify-content: space-around;
+  flex-wrap: wrap;
+  gap: 15px;
+}
+
+/* Style for each individual stat, copied from your .ability-item */
+.dustperados.sheet.item .stat-item {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  background: #f5f0e6;
+  border: 1px solid #d4c8b0;
+  border-radius: 5px;
+  padding: 8px;
+  box-shadow: 0 1px 2px rgba(0, 0, 0, 0.1);
+}
+
+/* Style for the stat label, copied from your .ability-label */
+.dustperados.sheet.item .stat-item label {
+  font-weight: bold;
+  margin-bottom: 5px;
+  text-transform: uppercase;
+  font-size: 0.9em;
+  color: #4a2e1d;
+}
+
+/* Style for the stat input, copied from your .ability-item input */
+.dustperados.sheet.item .stat-item input {
+  width: 80px; /* A bit wider for things like damage dice */
+  text-align: center;
+  padding: 5px;
+  border: 1px solid #aaa;
+  border-radius: 4px;
+  background: #fff;
+  font-size: 1em;
+}
+
+/* === Header Override for Item Sheet === */
+
+.dustperados.sheet.item .sheet-header {
+  flex-direction: row; /* Change from vertical to horizontal */
+  align-items: center;   /* Vertically align the image and title */
+  gap: 15px;             /* Add some space between the image and title */
+}
+
+/* Optional: Adjust the item name input since it's no longer centered */
+.dustperados.sheet.item .sheet-header h1 {
+  flex-grow: 1; /* Allow the name input to fill the remaining space */
+}
+
+.dustperados.sheet.item .sheet-header h1 input {
+  text-align: left; /* Align text to the left instead of center */
+}

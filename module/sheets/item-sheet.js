@@ -13,7 +13,6 @@ export class DustperadosItemSheet extends ItemSheet {
             template: "systems/dustperados/templates/item-sheet.html", // Points to your new HTML
             width: 520,
             height: 480,
-            tabs: [{ navSelector: ".sheet-tabs", contentSelector: ".sheet-body", initial: "description" }]
         });
     }
 
