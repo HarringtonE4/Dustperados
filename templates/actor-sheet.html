@@ -11,17 +11,45 @@
     {{!-- Sheet Body - Main Content Area --}}
     <section class="sheet-body flexcol">
         {{!-- Abilities Section (Now at the top, full width) --}}
-        <div class="abilities-section section-block">
-            <h3>{{localize "DUSTPERADOS.Actor.Sheet.HeaderAbilities"}}</h3>
-            <div class="abilities-grid">
-                {{#each actor.system.abilities as |ability key|}}
-                <div class="ability-item">
-                    <label class="ability-label">{{localize ability.label}}</label>
-                    <input type="text" name="system.abilities.{{key}}.value" value="{{ability.value}}" data-dtype="Number" />
+    <div class="abilities-section section-block">
+        <h3>{{localize "DUSTPERADOS.Actor.Sheet.HeaderAbilities"}}</h3>
+        <div class="abilities-grid">
+            <div class="ability-item brawn">
+                <label>{{localize "DUSTPERADOS.Actor.Abilities.Brawn"}}</label>
+                <div class="hp-input-group">
+                    <input type="number" name="system.abilities.brawn.value" value="{{actor.system.abilities.brawn.value}}" data-dtype="Number" />
                 </div>
-                {{/each}}
+            </div>
+
+            <div class="ability-item quickness">
+                <label>{{localize "DUSTPERADOS.Actor.Abilities.Quickness"}}</label>
+                <div class="hp-input-group">
+                    <input type="number" name="system.abilities.quickness.value" value="{{actor.system.abilities.quickness.value}}" data-dtype="Number" />
+                </div>
+            </div>
+
+            <div class="ability-item resolve">
+                <label>{{localize "DUSTPERADOS.Actor.Abilities.Resolve"}}</label>
+                <div class="hp-input-group">
+                    <input type="number" name="system.abilities.resolve.value" value="{{actor.system.abilities.resolve.value}}" data-dtype="Number" />
+                </div>
+            </div>
+
+            <div class="ability-item charm">
+                <label>{{localize "DUSTPERADOS.Actor.Abilities.Charm"}}</label>
+                <div class="hp-input-group">
+                    <input type="number" name="system.abilities.charm.value" value="{{actor.system.abilities.charm.value}}" data-dtype="Number" />
+                </div>
+            </div>
+
+            <div class="ability-item wits">
+                <label>{{localize "DUSTPERADOS.Actor.Abilities.Wits"}}</label>
+                <div class="hp-input-group">
+                    <input type="number" name="system.abilities.wits.value" value="{{actor.system.abilities.wits.value}}" data-dtype="Number" />
+                </div>
             </div>
         </div>
+    </div>
 
         {{!-- New container for the Left and Right panels --}}
         <div class="sheet-panels-container flexrow">
@@ -75,13 +103,20 @@
                             <label>{{localize "DUSTPERADOS.Actor.HitLocations.RightLeg"}}</label>
                             <div class="hp-input-group">
                                 <input type="number" name="system.hitLocations.rightLeg.value" value="{{actor.system.hitLocations.rightLeg.value}}" data-dtype="Number" />
-                                <span>____</span>
+                                <span>————</span>
                                 <input type="number" name="system.hitLocations.rightLeg.max" value="{{actor.system.hitLocations.rightLeg.max}}" data-dtype="Number" />
                             </div>
                         </div>
                     </div>
                 </div>
-                {{!-- Graze, Hit, Crit section --}}
+                {{!-- Description Section --}}
+                <div class="description-section section-block">
+                    <h3>{{localize "DUSTPERADOS.Common.Description"}}</h3>
+                    {{editor actor.system.description target="system.description" rollData=rollData button=true owner=owner editable=editable}}
+                </div>
+            </div> {{!-- End left-panel --}}
+            <div class="right-panel flexcol">
+                {{!-- Damage Threshold Section --}}
                 <div class="damage-status-section section-block">
                     <h3>Damage Thresholds</h3>
                     <div class="damage-status-grid">
@@ -99,13 +134,6 @@
                         </div>
                     </div>
                 </div>
-                {{!-- Description Section --}}
-                <div class="description-section section-block">
-                    <h3>{{localize "DUSTPERADOS.Common.Description"}}</h3>
-                    {{editor actor.system.description target="system.description" rollData=rollData button=true owner=owner editable=editable}}
-                </div>
-            </div> {{!-- End left-panel --}}
-            <div class="right-panel flexcol">
                 {{!-- Inventory Section --}}
                 <div class="inventory-section section-block">
                     <h3>{{localize "DUSTPERADOS.Item.Items"}}</h3>

@@ -127,25 +127,18 @@
 .dustperados.sheet .sheet-body {
     display: flex;
     flex-grow: 1;
-    padding: 15px 20px;
-    gap: 30px;
+    padding: 10px 10px;
+    gap: 5px;
     /* Space between left and right panels */
 }
 
 .dustperados.sheet .right-panel {
-    display: flex;
-    flex-direction: column;
-    gap: 20px;    /* Space between sections within each panel */
-    padding: 0;    /* No padding on panels themselves, sections have it */
+    flex: 1;
+    min-width: 300px;    /* Ensure it doesn't get too small */
 }
 
 .dustperados.sheet .left-panel {
     flex: 1;    /* Left panel takes equal space */
-    min-width: 300px;    /* Ensure it doesn't get too small */
-}
-
-.dustperados.sheet .right-panel {
-    flex: 1;    /* Right panel is a bit wider to hold items and description */
     min-width: 300px;    /* Ensure it doesn't get too small */
 }
 
@@ -171,15 +164,44 @@
     text-align: center;
 }
 
+.dustperados.sheet .damage-status-section.section-block{
+    justify-content: flex-start;
+    align-items: stretch;
+    margin-bottom: 0px;
+    flex-grow: 0; /* Prevents this flex item from growing to fill available space */
+    flex-shrink: 1; /* Prevents this flex item from shrinking below its content size */
+    height: auto;
+    min-height: unset;
+    position: static;
+    padding-bottom: 10px;
+}
+
+/* Right panel */
+.dustperados.sheet .right-panel.flexcol {
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+    min-height: 60px;
+}
+
+/* Damage Status Grid */
+.dustperados.sheet .damage-status-grid {
+    display: flex;
+    flex-shrink: 1; 
+    align-items: flex-start; 
+    justify-content: space-around;
+    gap: 10px;
+    padding-top: 5px;
+    padding-bottom: 5px;
+    margin-bottom: 0;
+}
+
 /* Abilities Grid */
 .dustperados.sheet .abilities-grid {
-    display: grid;
-    grid-template-columns: repeat(2, 1fr);
-    /* Two columns for abilities */
+    display: flex;
+    justify-content: space-around; 
+    align-items: flex-start; 
     gap: 10px;
-    /* For 5 abilities, 3 in first row, 2 in second if 2 columns. Adjust grid as needed. */
-    /* Example for 5 abilities in 2 columns: */
-    /* grid-template-columns: repeat(auto-fit, minmax(120px, 1fr)); */
 }
 
 .dustperados.sheet .ability-item {
@@ -187,7 +209,6 @@
     flex-direction: column;
     align-items: center;
     background: #f5f0e6;
-    /* Even lighter background for individual items */
     border: 1px solid #d4c8b0;
     border-radius: 5px;
     padding: 8px 5px;
@@ -251,13 +272,6 @@
     background: #fff;
 }
 
-/* Damage Status Grid */
-.dustperados.sheet .damage-status-grid {
-    display: flex;
-    justify-content: space-around;
-    gap: 10px;
-    padding-top: 5px;
-}
 
 .dustperados.sheet .status-item {
     display: flex;
@@ -287,6 +301,33 @@
     font-size: 1.1em;
 }
 
+/* Adjustments for the Damage Thresholds section */
+
+.dustperados.sheet .damage-status-section {
+    /* Reduce padding at the bottom of the entire section block */
+    padding-bottom: 5px; /* You can adjust this value (e.g., 0px, 10px) as needed */
+}
+
+.dustperados.sheet .damage-status-section h3 {
+    /* Reduce or remove margin below the heading */
+    margin-bottom: 5px; /* Adjust as needed, could be 0px */
+}
+
+.dustperados.sheet .damage-status-grid {
+    /* If there's still a gap, it might be padding or margin on this grid container */
+    padding-bottom: 0; /* Remove any bottom padding */
+    margin-bottom: 0; /* Remove any bottom margin */
+}
+
+/* Ensure the individual status items don't have excessive bottom margin/padding */
+.dustperados.sheet .status-item {
+    margin-bottom: 0; /* Or a small value like 5px */
+    padding-bottom: 0; /* Or a small value like 5px */
+}
+
+.dustperados.sheet .status-item label {
+    margin-top: 5px; /* Add a small top margin to the label to separate it from the input */
+}
 
 /* Inventory Section */
 .dustperados.sheet .inventory-section {
