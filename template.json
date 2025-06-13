@@ -68,18 +68,9 @@
                     }
                 },
                 "damageStatus": {
-                    "graze": {
-                        "type": "Number",
-                        "value": 0
-                    },
-                    "hit": {
-                        "type": "Number",
-                        "value": 0
-                    },
-                    "crit": {
-                        "type": "Number",
-                        "value": 0
-                    }
+                    "graze": { "type": "Number", "value": 0 },
+                    "hit": { "type": "Number", "value": 0 },
+                    "crit": { "type": "Number", "value": 0 }
                 },
                 "luckjinx": {
                     "type": "Number",
@@ -93,47 +84,19 @@
         "Item": {
             "templates": {
                 "common": {
-                    "description": {
-                        "type": "String",
-                        "label": "Description",
-                        "value": ""
-                    },
-                    "value": {
-                        "type": "Number",
-                        "label": "DUSTPERADOS.Item.Value",
-                        "value": 0
-                    }
+                    "description": { "type": "String", "label": "Description", "value": "" },
+                    "value": { "type": "Number", "label": "DUSTPERADOS.Item.Value", "value": 0 }
                 }
             },
             "weapon": {
-                "templates": [
-                    "common"
-                ],
-                "damage": {
-                    "type": "String",
-                    "label": "DUSTPERADOS.Item.Weapon.Damage",
-                    "value": "1d6"
-                },
-                "range": {
-                    "type": "String",
-                    "label": "DUSTPERADOS.Item.Weapon.Range",
-                    "value": "30"
-                }
+                "templates": ["common"],
+                "damage": { "type": "String", "label": "DUSTPERADOS.Item.Weapon.Damage", "value": "1d6" },
+                "range": { "type": "String", "label": "DUSTPERADOS.Item.Weapon.Range", "value": "30" }
             },
             "equipment": {
-                "templates": [
-                    "common"
-                ],
-                "weight": {
-                    "type": "Number",
-                    "label": "DUSTPERADOS.Item.Equipment.Weight",
-                    "value": "0"
-                },
-                "quantity": {
-                    "type": "Number",
-                    "label": "DUSTPERADOS.Item.Equipment.Quantity",
-                    "value": "1"
-                }
+                "templates": ["common"],
+                "weight": { "type": "Number", "label": "DUSTPERADOS.Item.Equipment.Weight", "value": "0" },
+                "quantity": { "type": "Number", "label": "DUSTPERADOS.Item.Equipment.Quantity", "value": "1" }
             }
         }
     }
