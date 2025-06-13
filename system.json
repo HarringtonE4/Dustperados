@@ -13,7 +13,6 @@
         "url": "https://github.com/HarringtonE4",
         "email": "None"
     }],
-    "template": "template.json",
     "esmodules": ["module/dustperados.js"],
     "styles": ["css/dustperados.css"],
     "languages": [{
