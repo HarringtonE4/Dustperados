@@ -104,16 +104,16 @@
                             "type": "Number",
                             "value": 0
                         }
+                    },
+                    "luckjinx":
+                    {
+                        "type": "Number",
+                        "value": 0,
+                        "min": -5,
+                        "max": 5,
+                        "label": "DUSTPERADOS.LuckJinx"
                     }
                 }
-            },
-            "character":
-            {
-                "templates": ["common"]
-            },
-            "npc":
-            {
-                "templates": ["common"]
             }
         },
         "Item":

@@ -1,5 +1,9 @@
 {
   "DUSTPERADOS": {
+    "ActionBar": {
+      "LuckJinx": "Luck or Jinx",
+      "ActionBar": "Action Bar"
+    },
     "System": {
       "Name": "Dustperados"
     },
@@ -68,6 +72,17 @@
         "Range": "Range"
       },
       "Rarity": "Rarity"
+    },
+    "Condition": {
+      "Dying": "Dying",
+      "Unconscious": "Unconscious",
+      "HalfCover": "Half Cover",
+      "FullCover": "Full Cover",
+      "Kneeling": "Kneeling",
+      "Prone": "Prone",
+      "Riding": "Riding",
+      "Luck": "Luck",
+      "Jinx": "Jinx"
     },
     "Settings": {
       "Name": "My Test Setting",

@@ -22,17 +22,11 @@
     }],
     "documentTypes": {
         "Actor": {
-            "common": {
-            },
             "character": {
-                "templates": ["common"]
-            },
-            "npc": {
                 "templates": ["common"]
             }
         },
         "Item": {
-            "common": {},
             "weapon": {
                 "templates": ["common"]
             },

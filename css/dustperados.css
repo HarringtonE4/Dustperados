@@ -552,3 +552,48 @@
 .dustperados.sheet.item .sheet-header h1 input {
   text-align: left; /* Align text to the left instead of center */
 }
+/* ============================= */
+/* === Luck/Jinx Section === */
+/* ============================= */
+
+.dustperados.sheet .luck-jinx-section h3 {
+  margin-bottom: 10px; /* Add some space below the title */
+}
+
+.dustperados.sheet .luck-jinx-control {
+  display: flex;
+  justify-content: center; /* Center the buttons and input */
+  align-items: center;
+  gap: 10px;
+}
+
+.dustperados.sheet .luck-jinx-control input {
+  width: 50px;
+  text-align: center;
+  font-size: 1.5em;
+  font-weight: bold;
+  color: #333;
+  border: none;
+  background: none;
+  pointer-events: none; /* Make the input field non-interactive */
+}
+
+.dustperados.sheet .luck-jinx-btn {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 30px;
+  height: 30px;
+  background: #f5f0e6;
+  border: 1px solid #d4c8b0;
+  border-radius: 50%; /* Make the buttons circular */
+  color: #4a2e1d;
+  font-size: 1em;
+  cursor: pointer;
+  transition: background-color 0.2s ease, box-shadow 0.2s ease;
+}
+
+.dustperados.sheet .luck-jinx-btn:hover {
+  background-color: #fff;
+  box-shadow: 0 0 5px rgba(0, 0, 0, 0.2);
+}
