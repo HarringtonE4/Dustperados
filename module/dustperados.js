@@ -36,7 +36,7 @@ Hooks.once("init", async function() {
         {
             id: 'kneeling',
             label: 'DUSTPERADOS.Condition.Kneeling',
-            icon: 'icons/svg/direction.svg'
+            icon: 'icons/svg/statue.svg'
         },
         {
             id: 'prone',
@@ -48,25 +48,20 @@ Hooks.once("init", async function() {
             label: 'DUSTPERADOS.Condition.Riding',
             icon: 'icons/svg/angel.svg' // Placeholder, suggests "mounted up"
         },
+        {
+            id: 'luck',
+            label: 'DUSTPERADOS.Condition.Luck',
+            icon: 'icons/svg/up.svg'
+        },
+        {
+            id: 'jinx',
+            label: 'DUSTPERADOS.Condition.Jinx',
+            icon: 'icons/svg/down.svg'
+        },
     ];
 
     // Overwrite the default status effects with our custom list.
     CONFIG.statusEffects = DUSTPERADOS_STATUS_EFFECTS;
-
-    // --- Define Special Statuses for Luck/Jinx ---
-        // These are not shown in the HUD but can be toggled by code.
-        CONFIG.specialStatusEffects = {
-            "luck": {
-                id: 'luck',
-                label: 'DUSTPERADOS.Condition.Luck',
-                icon: 'icons/svg/star.svg'
-            },
-            "jinx": {
-                id: 'jinx',
-                label: 'DUSTPERADOS.Condition.Jinx',
-                icon: 'icons/svg/cursed.svg'
-            }
-        };
 
     const templatePaths = []; 
     await foundry.applications.handlebars.loadTemplates(templatePaths); 

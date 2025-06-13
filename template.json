@@ -2,7 +2,7 @@
     "name": "dustperados",
     "label": "Dustperados System Data Model",
     "system": {
-        "Actor": {
+        "actor": {
             "character": {
                 "description": {
                     "type": "String",
@@ -72,15 +72,12 @@
                     "hit": { "type": "Number", "value": 0 },
                     "crit": { "type": "Number", "value": 0 }
                 },
-                "luckjinx": {
-                    "type": "Number",
-                    "value": 0,
-                    "min": -5,
-                    "max": 5,
-                    "label": "DUSTPERADOS.LuckJinx"
+                "condition": {
+                    "luckjinx": { "type": "Number", "value": 0, "max": 5, "min": -5, "label": "DUSTPERADOS.ActionBar.LuckJinx" }
                 }
             }
-        },
+        }
+    },
         "Item": {
             "templates": {
                 "common": {
@@ -98,6 +95,5 @@
                 "weight": { "type": "Number", "label": "DUSTPERADOS.Item.Equipment.Weight", "value": "0" },
                 "quantity": { "type": "Number", "label": "DUSTPERADOS.Item.Equipment.Quantity", "value": "1" }
             }
-        }
-    }
+            }
 }

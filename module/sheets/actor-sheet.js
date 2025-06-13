@@ -14,12 +14,10 @@ export class DustperadosActorSheet extends ActorSheet {
 
     /** @override */
     getData() {
-        const data = super.getData();
-        data.system = data.actor.system;
-        data.abilities = data.actor.system.abilities;
-        data.items = data.actor.items.contents;
-        console.log("Dustperados | Actor Sheet Data (after getData):", data);
-        return data;
+        const context = super.getData();
+        context.system = this.actor.system;        
+        console.log("Dustperados | Actor Sheet Data (after getData):", context);
+        return context;
     }
 
     /** @override */
@@ -127,11 +125,10 @@ export class DustperadosActorSheet extends ActorSheet {
         event.preventDefault();
         const button = event.currentTarget;
         const action = button.dataset.action;
-        const actorData = this.actor.system;
-
-        const currentValue = actorData.luckjinx.value;
-        const min = actorData.luckjinx.min;
-        const max = actorData.luckjinx.max;
+        const luckjinxdata = this.actor.system.condition.luckjinx;
+        const currentValue = luckjinxdata.value;
+        const min = luckjinxdata.min;
+        const max = luckjinxdata.max;
 
         let newValue;
         if (action === "increase-luck") {
@@ -144,7 +141,7 @@ export class DustperadosActorSheet extends ActorSheet {
 
         // Only update if the value has changed
         if (newValue !== currentValue) {
-            await this.actor.update({ 'system.luckjinx.value': newValue });
+            await this.actor.update({ 'system.condition.luckjinx.value': newValue });
             // Note: We no longer call the _updateLuckJinxIcon method directly.
             // It will be handled automatically by the 'updateActor' hook.
         }
@@ -155,11 +152,11 @@ export class DustperadosActorSheet extends ActorSheet {
      * We use it to ensure the token icon is correct when the sheet is opened.
      * @override
      */
-    render(force = false, options = {}) {
-        // When the sheet renders, check and set the correct icon.
-        // This ensures the icon is correct even if the data was changed
-        // while the sheet was closed.
-        this._updateLuckJinxIcon(this.actor.system.luckjinx.value);
+        render(force = false, options = {}) {
+        // DEFENSIVE CODING: Before trying to access luckjinx,
+        if (this.actor.system?.condition?.luckjinx) {
+            this._updateLuckJinxIcon(this.actor.system.condition.luckjinx.value);
+        }
         return super.render(force, options);
     }
 
