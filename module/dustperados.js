@@ -86,13 +86,6 @@ Hooks.once("ready", async function() {
         makeDefault: true,
         label: "DUSTPERADOS.SheetTitleCharacter"
     });
-    // Register your custom NPC sheet
-    DocumentSheetConfig.registerSheet(Actor, "dustperados", DustperadosActorSheet, {
-        types: ["npc"],
-        makeDefault: false, 
-        label: "DUSTPERADOS.SheetTitleNPC"
-    });
-
 
     // Unregister default Item sheet
     // Use the global Item class for unregisterSheet

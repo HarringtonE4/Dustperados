@@ -13,6 +13,7 @@
         "url": "https://github.com/HarringtonE4",
         "email": "None"
     }],
+    "template": "template.json",
     "esmodules": ["module/dustperados.js"],
     "styles": ["css/dustperados.css"],
     "languages": [{
@@ -23,15 +24,18 @@
     "documentTypes": {
         "Actor": {
             "character": {
-                "templates": ["common"]
+                "label": "Character",
+                "labelPlural": "Characters"
             }
         },
         "Item": {
             "weapon": {
-                "templates": ["common"]
+                "label": "Weapon",
+                "labelPlural": "Weapons"
             },
             "equipment": {
-                "templates": ["common"]
+                "label": "Equipment",
+                "labelPlural": "Equipment"
             }
         }
     },
