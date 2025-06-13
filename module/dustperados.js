@@ -53,6 +53,20 @@ Hooks.once("init", async function() {
     // Overwrite the default status effects with our custom list.
     CONFIG.statusEffects = DUSTPERADOS_STATUS_EFFECTS;
 
+    // --- Define Special Statuses for Luck/Jinx ---
+        // These are not shown in the HUD but can be toggled by code.
+        CONFIG.specialStatusEffects = {
+            "luck": {
+                id: 'luck',
+                label: 'DUSTPERADOS.Condition.Luck',
+                icon: 'icons/svg/star.svg'
+            },
+            "jinx": {
+                id: 'jinx',
+                label: 'DUSTPERADOS.Condition.Jinx',
+                icon: 'icons/svg/cursed.svg'
+            }
+        };
 
     const templatePaths = []; 
     await foundry.applications.handlebars.loadTemplates(templatePaths); 

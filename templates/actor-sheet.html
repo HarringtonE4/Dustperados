@@ -120,9 +120,10 @@
                  <div class="luck-jinx-section section-block">
                      <h3>{{localize "DUSTPERADOS.ActionBar.ActionBar"}}</h3>
                      <div class="luck-jinx-control">
-                         <a class="luck-jinx-btn" data-action="decrease-luck" title="Decrease Value"><i class="fa-solid fa-minus"></i></a>
+                        <label>{{localize "DUSTPERADOS.ActionBar.LuckJinx"}}</label>
+                         <a class="action-bar-btn" data-action="decrease-luck" title="Decrease Value"><i class="fa-solid fa-minus"></i></a>
                          <input type="text" name="system.luckjinx.value" value="{{actor.system.luckjinx.value}}" data-dtype="Number" readonly />
-                         <a class="luck-jinx-btn" data-action="increase-luck" title="Increase Value"><i class="fa-solid fa-plus"></i></a>
+                         <a class="action-bar-btn" data-action="increase-luck" title="Increase Value"><i class="fa-solid fa-plus"></i></a>
                      </div>
                  </div>
                 {{!-- Damage Threshold Section --}}
