@@ -30,23 +30,5 @@
                 "luckjinx": { "value": 0, "max": 5, "min": -5 }
             }
         }
-    },
-    "Item": {
-        "templates": {
-            "common": {
-                "description": { "type": "String", "value": "" },
-                "value": { "type": "Number", "value": 0 }
-            }
-        },
-        "weapon": {
-            "templates": ["common"],
-            "damage": { "type": "String", "value": "1d6" },
-            "range": { "type": "String", "value": "30" }
-        },
-        "equipment": {
-            "templates": ["common"],
-            "weight": { "type": "Number", "value": 0 },
-            "quantity": { "type": "Number", "value": 1 }
-        }
     }
 }

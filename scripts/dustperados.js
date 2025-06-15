@@ -48,7 +48,8 @@ Hooks.on("preCreateActor", (document, data, options, userId) => {
     // This logic only applies to the 'character' type.
     if (document.type === "character") {
         // Get the blueprint for a character from the system's template.json.
-        const template = game.system.template.Actor.character;
+        // NOTE: In the new structure, this is template/actor.json, referenced as game.system.template.Actor
+        const template = game.system.template.Actor;
         
         // The data that is about to be created for the new actor.
         const source = document.toObject();
