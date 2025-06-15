@@ -3,51 +3,50 @@
         "character": {
             "description": {
                 "type": "String",
-                "label": "Description",
                 "value": ""
             },
             "abilities": {
-                "brawn": { "value": 0, "label": "DUSTPERADOS.Brawn" },
-                "quickness": { "value": 0, "label": "DUSTPERADOS.Quickness" },
-                "resolve": { "value": 0, "label": "DUSTPERADOS.Resolve" },
-                "charm": { "value": 0, "label": "DUSTPERADOS.Charm" },
-                "wits": { "value": 0, "label": "DUSTPERADOS.Wit" }
+                "brawn": { "value": 0 },
+                "quickness": { "value": 0 },
+                "resolve": { "value": 0 },
+                "charm": { "value": 0 },
+                "wits": { "value": 0 }
             },
             "hitLocations": {
-                "head": { "value": 0, "max": 0, "label": "DUSTPERADOS.Actor.HitLocations.Head" },
-                "body": { "value": 0, "max": 0, "label": "DUSTPERADOS.Actor.HitLocations.Body" },
-                "leftArm": { "value": 0, "max": 0, "label": "DUSTPERADOS.Actor.HitLocations.LeftArm" },
-                "rightArm": { "value": 0, "max": 0, "label": "DUSTPERADOS.Actor.HitLocations.RightArm" },
-                "leftLeg": { "value": 0, "max": 0, "label": "DUSTPERADOS.Actor.HitLocations.LeftLeg" },
-                "rightLeg": { "value": 0, "max": 0, "label": "DUSTPERADOS.Actor.HitLocations.RightLeg" },
-                "defense": { "value": 0, "label": "DUSTPERADOS.Actor.HitLocations.Defense" }
+                "head": { "value": 0, "max": 0 },
+                "body": { "value": 0, "max": 0 },
+                "leftArm": { "value": 0, "max": 0 },
+                "rightArm": { "value": 0, "max": 0 },
+                "leftLeg": { "value": 0, "max": 0 },
+                "rightLeg": { "value": 0, "max": 0 },
+                "defense": { "value": 0 }
             },
             "damageStatus": {
-                "graze": { "type": "Number", "value": 0 },
-                "hit": { "type": "Number", "value": 0 },
-                "crit": { "type": "Number", "value": 0 }
+                "graze": { "value": 0 },
+                "hit": { "value": 0 },
+                "crit": { "value": 0 }
             },
             "condition": {
-                "luckjinx": { "type": "Number", "value": 0, "max": 5, "min": -5, "label": "DUSTPERADOS.ActionBar.LuckJinx" }
+                "luckjinx": { "value": 0, "max": 5, "min": -5 }
             }
         }
     },
     "Item": {
         "templates": {
             "common": {
-                "description": { "type": "String", "label": "Description", "value": "" },
-                "value": { "type": "Number", "label": "DUSTPERADOS.Item.Value", "value": 0 }
+                "description": { "type": "String", "value": "" },
+                "value": { "type": "Number", "value": 0 }
             }
         },
         "weapon": {
             "templates": ["common"],
-            "damage": { "type": "String", "label": "DUSTPERADOS.Item.Weapon.Damage", "value": "1d6" },
-            "range": { "type": "String", "label": "DUSTPERADOS.Item.Weapon.Range", "value": "30" }
+            "damage": { "type": "String", "value": "1d6" },
+            "range": { "type": "String", "value": "30" }
         },
         "equipment": {
             "templates": ["common"],
-            "weight": { "type": "Number", "label": "DUSTPERADOS.Item.Equipment.Weight", "value": "0" },
-            "quantity": { "type": "Number", "label": "DUSTPERADOS.Item.Equipment.Quantity", "value": "1" }
+            "weight": { "type": "Number", "value": 0 },
+            "quantity": { "type": "Number", "value": 1 }
         }
     }
 }

@@ -1,106 +1,62 @@
-// Dustperados/module/dustperados.js
-
 import { DustperadosActorSheet } from "./sheets/actor-sheet.js";
 import { DustperadosItemSheet } from "./sheets/item-sheet.js";
 
-/**
- * Foundry VTT is initialized.
- * This hook is fired once Foundry has finished its initialization process.
- */
+/* -------------------------------------------- */
+/* Foundry VTT Initialization                  */
+/* -------------------------------------------- */
 Hooks.once("init", async function() {
-    console.log("Dustperados | Initializing Dustperados System (Init Hook)");
+    console.log("Dustperados | Initializing Dustperados System");
 
-    // --- Define Custom Status Effects ---
-    // This array will replace the default Foundry status effects.
-    const DUSTPERADOS_STATUS_EFFECTS = [
-        {
-            id: 'dying',
-            label: 'DUSTPERADOS.Condition.Dying',
-            icon: 'icons/svg/skull.svg'
-        },
-        {
-            id: 'unconscious',
-            label: 'DUSTPERADOS.Condition.Unconscious',
-            icon: 'icons/svg/stoned.svg'
-        },
-        {
-            id: 'halfCover',
-            label: 'DUSTPERADOS.Condition.HalfCover',
-            icon: 'icons/svg/barrel.svg' // Using aura to suggest partial protection
-        },
-        {
-            id: 'fullCover',
-            label: 'DUSTPERADOS.Condition.FullCover',
-            icon: 'icons/svg/shield.svg' // Using a solid shield for full protection
-        },
-        {
-            id: 'kneeling',
-            label: 'DUSTPERADOS.Condition.Kneeling',
-            icon: 'icons/svg/statue.svg'
-        },
-        {
-            id: 'prone',
-            label: 'DUSTPERADOS.Condition.Prone',
-            icon: 'icons/svg/falling.svg'
-        },
-        {
-            id: 'riding',
-            label: 'DUSTPERADOS.Condition.Riding',
-            icon: 'icons/svg/angel.svg' // Placeholder, suggests "mounted up"
-        },
-        {
-            id: 'luck',
-            label: 'DUSTPERADOS.Condition.Luck',
-            icon: 'icons/svg/up.svg'
-        },
-        {
-            id: 'jinx',
-            label: 'DUSTPERADOS.Condition.Jinx',
-            icon: 'icons/svg/down.svg'
-        },
-    ];
-
-    // Overwrite the default status effects with our custom list.
-    CONFIG.statusEffects = DUSTPERADOS_STATUS_EFFECTS;
-
-    const templatePaths = []; 
-    await foundry.applications.handlebars.loadTemplates(templatePaths); 
+    // Define special status effects for Luck/Jinx that can be controlled by code.
+    CONFIG.specialStatusEffects = {
+        "luck": { id: 'luck', label: 'Luck', icon: 'icons/svg/star.svg' },
+        "jinx": { id: 'jinx', label: 'Jinx', icon: 'icons/svg/cursed.svg' }
+    };
 });
 
-/**
- * The game is fully ready.
- * This hook is fired once all other initialization is complete and the game is ready to be used.
- */
+/* -------------------------------------------- */
+/* Foundry VTT Ready                           */
+/* -------------------------------------------- */
 Hooks.once("ready", async function() {
-    console.log("Dustperados | System Ready (Ready Hook)");
+    console.log("Dustperados | System Ready");
 
-    // Correctly unregister default sheets and register custom ones
-
-    // Unregister default Actor sheet
-    // Use the global Actor class for unregisterSheet
-    DocumentSheetConfig.unregisterSheet(Actor, "core", ActorSheet); 
-    
-    // Register your custom character sheet
+    // Unregister default sheets and register custom ones.
+    DocumentSheetConfig.unregisterSheet(Actor, "core", ActorSheet);
     DocumentSheetConfig.registerSheet(Actor, "dustperados", DustperadosActorSheet, {
         types: ["character"],
         makeDefault: true,
-        label: "DUSTPERADOS.SheetTitleCharacter"
+        label: "Dustperados Character Sheet"
     });
 
-    // Unregister default Item sheet
-    // Use the global Item class for unregisterSheet
-    DocumentSheetConfig.unregisterSheet(Item, "core", ItemSheet); 
-
-    // Register your custom item sheet for weapon and equipment types
+    DocumentSheetConfig.unregisterSheet(Item, "core", ItemSheet);
     DocumentSheetConfig.registerSheet(Item, "dustperados", DustperadosItemSheet, {
         types: ["weapon", "equipment"],
         makeDefault: true,
-        label: "DUSTPERADOS.SheetTitleItem"
+        label: "Dustperados Item Sheet"
     });
+});
 
-    // This hook fires BEFORE an Actor document is created
-    Hooks.on("preCreateActor", (document, data, options, userId) => {
-        console.log("Dustperados | preCreateActor Hook - Initial Data:", data);
-        console.log("Dustperados | preCreateActor Hook - Actor System Data:", data.system);
-    });
+/* -------------------------------------------- */
+/* Force Data Model Application                */
+/* -------------------------------------------- */
+/**
+ * This hook runs just BEFORE a new Actor is created.
+ * It manually merges the default data from the template.json,
+ * guaranteeing that new characters are never created with an empty system object.
+ */
+Hooks.on("preCreateActor", (document, data, options, userId) => {
+    // This logic only applies to the 'character' type.
+    if (document.type === "character") {
+        // Get the blueprint for a character from the system's template.json.
+        const template = game.system.template.Actor.character;
+        
+        // The data that is about to be created for the new actor.
+        const source = document.toObject();
+
+        // Merge the blueprint into the creation data.
+        const mergedData = foundry.utils.mergeObject(template, source.system);
+        
+        // Update the creation data with the complete, merged data.
+        document.updateSource({ system: mergedData });
+    }
 });
