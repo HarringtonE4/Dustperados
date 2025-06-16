@@ -13,29 +13,26 @@
           <label>{{localize "DUSTPERADOS.Item.Value"}}</label>
           <input type="number" name="system.value" value="{{item.system.value}}" data-dtype="Number" />
         </div>
-        
-        {{#if (eq item.type "equipment")}}
         <div class="stat-item">
-          <label>{{localize "DUSTPERADOS.Equipment.Weight"}}</label>
+          <label>{{localize "DUSTPERADOS.Item.Weight"}}</label>
           <input type="number" name="system.weight" value="{{item.system.weight}}" data-dtype="Number" />
         </div>
         <div class="stat-item">
-          <label>{{localize "DUSTPERADOS.Equipment.Quantity"}}</label>
+          <label>{{localize "DUSTPERADOS.Item.Quantity"}}</label>
           <input type="number" name="system.quantity" value="{{item.system.quantity}}" data-dtype="Number" />
         </div>
-        {{/if}}
 
         {{#if (eq item.type "weapon")}}
         <div class="stat-item">
-          <label>{{localize "DUSTPERADOS.Weapon.Damage"}}</label>
+          <label>{{localize "DUSTPERADOS.Item.Damage"}}</label>
           <input type="text" name="system.damage" value="{{item.system.damage}}" data-dtype="String" />
         </div>
         <div class="stat-item">
-          <label>{{localize "DUSTPERADOS.Weapon.Range"}}</label>
+          <label>{{localize "DUSTPERADOS.Item.Range"}}</label>
           <input type="text" name="system.range" value="{{item.system.range}}" data-dtype="String" />
         </div>
         {{/if}}
-
+        
       </div>
     </div>
 
