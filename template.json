@@ -1,6 +1,9 @@
 {
     "Actor": {
         "character": {
+            "templates": ["common"]
+        },
+        "common": {
             "description": {
                 "type": "String",
                 "label": "Description",

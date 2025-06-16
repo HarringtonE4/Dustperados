@@ -4,7 +4,7 @@
  * Extend the basic ItemSheet with some improvements.
  * @extends {ItemSheet}
  */
-export class DustperadosItemSheet extends ItemSheet {
+export class DustperadosItemSheet extends foundry.appv1.sheets.ItemSheet {
 
     /** @override */
     static get defaultOptions() {

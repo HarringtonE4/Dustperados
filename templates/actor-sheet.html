@@ -112,7 +112,7 @@
                 {{!-- Description Section --}}
                 <div class="description-section section-block">
                     <h3>{{localize "DUSTPERADOS.Common.Description"}}</h3>
-                    {{editor actor.system.description target="system.description" rollData=rollData button=true owner=owner editable=editable}}
+                    {{editor actor.system.description.value target="system.description.value" rollData=rollData button=true owner=owner editable=editable}}
                 </div>
             </div> {{!-- End left-panel --}}
             <div class="right-panel flexcol">
@@ -122,7 +122,7 @@
                      <div class="luck-jinx-control">
                         <label>{{localize "DUSTPERADOS.ActionBar.LuckJinx"}}</label>
                          <a class="action-bar-btn" data-action="decrease-luck" title="Decrease Value"><i class="fa-solid fa-minus"></i></a>
-                         <input type="text" name="system.luckjinx.value" value="{{actor.system.luckjinx.value}}" data-dtype="Number" readonly />
+                         <input type="text" name="system.condition.luckjinx.value" value="{{actor.system.condition.luckjinx.value}}" data-dtype="Number" readonly />
                          <a class="action-bar-btn" data-action="increase-luck" title="Increase Value"><i class="fa-solid fa-plus"></i></a>
                      </div>
                  </div>
