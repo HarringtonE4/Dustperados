@@ -1,36 +1,46 @@
 {
-  "id": "dustperados",
-  "title": "Dustperados",
-  "description": "A simple system for Foundry VTT.",
-  "version": "0.1.0",
-  "url": "https://github.com/HarringtonE4/Dustperados",
-  "manifest": "https://raw.githubusercontent.com/HarringtonE4/Dustperados/main/system.json",
-  "download": "https://github.com/HarringtonE4/Dustperados/archive/refs/heads/main.zip",
-  "license": "LICENSE.txt",
-  "compatibility": {
-    "minimum": "13",
-    "verified": "13"
-  },
-  "authors": [{
-    "name": "HarringtonE4",
-    "url": "https://github.com/HarringtonE4",
-    "email": "None"
-  }],
-  "esmodules": ["scripts/dustperados.js"], // Changed from "module/dustperados.js"
-  "scripts": [], // Remove or keep if you have non-ESM scripts
-  "styles": ["styles/dustperados.css"], // Changed from "css/dustperados.css"
-  "languages": [{
-    "lang": "en",
-    "name": "English",
-    "path": "lang/en.json"
-  }],
-  "template": {
-    "Actor": "template/actor.json",
-    "Item": "template/item.json"
-  },
-  "packs": [],
-  "grid": {
-    "distance": 1,
-    "units": "yd"
-  }
+    "id": "dustperados",
+    "title": "Dustperados",
+    "description": "A simple system for Foundry VTT.",
+    "version": "0.0.1",
+    "compatibility": {
+        "minimum": "13.0.0",
+        "verified": "13.0.0",
+        "maximum": "13.999"
+    },
+    "authors": [{
+        "name": "HarringtonE4",
+        "url": "https://github.com/HarringtonE4",
+        "email": "None"
+    }],
+    "esmodules": ["module/dustperados.js"],
+    "styles": ["css/dustperados.css"],
+    "languages": [{
+        "lang": "en",
+        "name": "English",
+        "path": "lang/en.json"
+    }],
+    "documentTypes": {
+        "Actor": {
+            "character": {
+                "label": "Character",
+                "labelPlural": "Characters"
+            }
+        },
+        "Item": {
+            "weapon": {
+                "label": "Weapon",
+                "labelPlural": "Weapons"
+            },
+            "equipment": {
+                "label": "Equipment",
+                "labelPlural": "Equipment"
+            }
+        }
+    },
+    "packs": [],
+    "url": "https://github.com/HarringtonE4/Dustperados",
+    "manifest": "https://raw.githubusercontent.com/HarringtonE4/Dustperados/main/system.json",
+    "download": "https://github.com/HarringtonE4/Dustperados/archive/refs/heads/main.zip",
+    "license": "LICENSE.txt"
 }

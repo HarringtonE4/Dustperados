@@ -14,13 +14,12 @@ export class DustperadosActorSheet extends ActorSheet {
 
     /** @override */
     getData() {
-        // The base method already provides the 'actor' object,
-        // which contains 'system'. The template can access everything it needs.
         const context = super.getData();
+        context.system = this.actor.system;        
         console.log("Dustperados | Actor Sheet Data (after getData):", context);
         return context;
     }
-    
+
     /** @override */
     activateListeners(html) {
         super.activateListeners(html);
