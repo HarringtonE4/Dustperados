@@ -43,25 +43,35 @@
         "Crit": "Crit"
       }
     },
+    "Equipment": {
+      "Weight": "Weight",
+      "Quantity": "Quantity"
+      },
     "Item": {
       "NamePlaceholder": "Item Name",
       "Name": "Name",
       "Items": "Items",
       "Properties": "Properties",
       "Value": "Value",
-      "Weight": "Weight",
-      "Quantity": "Quantity",
-      "Damage": "Damage",
-      "Range": "Range",
       "Add": {
         "Equipment": "Add Equipment",
-        "Generic": "Add Item"
-              },
+        "Generic": "Add Item",
       "Edit": "Edit Item",
       "Delete": "Delete Item",
       "Sheet": {
         "Title": "Item Sheet"
-                }
+      },
+      "Type": {
+        "Weapon": "Weapon",
+        "Equipment": "Equipment",
+        "WeaponDetails": "Weapon Details",
+        "EquipmentDetails": "Equipment Details"
+      },
+      "Weapon": {
+        "Damage": "Damage",
+        "Range": "Range"
+      },
+      "Rarity": "Rarity"
     },
     "Condition": {
       "Dying": "Dying",
@@ -79,6 +89,7 @@
       "Hint": "This is a test setting for Dustperados.",
       "EnableFancyFeature": "Enable Fancy Feature",
       "EnableFancyFeatureHint": "Turn this on for a fancy experience!"
+      }
     }
   }
 }

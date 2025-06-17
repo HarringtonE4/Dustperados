@@ -1,9 +1,6 @@
 {
     "Actor": {
         "character": {
-            "templates": ["common"]
-        },
-        "common": {
             "description": {
                 "type": "String",
                 "label": "Description",
@@ -37,16 +34,20 @@
     },
     "Item": {
         "templates": {
-            "equipment": {  
+            "common": {
                 "description": { "type": "String", "label": "Description", "value": "" },
-                "value": { "type": "Number", "label": "DUSTPERADOS.Item.Value", "value": 0 },
-                "weight": { "type": "Number", "label": "DUSTPERADOS.Item.Weight", "value": 0 },
-                "damage": { "type": "String", "label": "DUSTPERADOS.Item.Damage", "value": "1d6" },
-                "range": { "type": "String", "label": "DUSTPERADOS.Item.Range", "value": "30" },
-                "quantity": { "type": "Number", "label": "DUSTPERADOS.Item.Quantity", "value": 0 }
+                "value": { "type": "Number", "label": "DUSTPERADOS.Item.Value", "value": 0 }
             }
-            
+        },
+        "weapon": {
+            "templates": ["common"],
+            "damage": { "type": "String", "label": "DUSTPERADOS.Item.Weapon.Damage", "value": "1d6" },
+            "range": { "type": "String", "label": "DUSTPERADOS.Item.Weapon.Range", "value": "30" }
+        },
+        "equipment": {
+            "templates": ["common"],
+            "weight": { "type": "Number", "label": "DUSTPERADOS.Item.Equipment.Weight", "value": "0" },
+            "quantity": { "type": "Number", "label": "DUSTPERADOS.Item.Equipment.Quantity", "value": "1" }
         }
-        
     }
 }

@@ -1,8 +1,8 @@
 {
     "id": "dustperados",
     "title": "Dustperados",
-    "description": "A western system for Foundry VTT.",
-    "version": "0.1.1",
+    "description": "A simple system for Foundry VTT.",
+    "version": "0.0.1",
     "compatibility": {
         "minimum": "13.0.0",
         "verified": "13.0.0",
@@ -13,7 +13,7 @@
         "url": "https://github.com/HarringtonE4",
         "email": "None"
     }],
-    "esmodules": ["module/dustperados.mjs"],
+    "esmodules": ["module/dustperados.js"],
     "styles": ["css/dustperados.css"],
     "languages": [{
         "lang": "en",
@@ -22,10 +22,6 @@
     }],
     "documentTypes": {
         "Actor": {
-            "common": {
-                "label": "Common",
-                "labelPlural": "Common"
-            },
             "character": {
                 "label": "Character",
                 "labelPlural": "Characters"
