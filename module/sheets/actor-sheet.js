@@ -1,7 +1,6 @@
 // Dustperados/module/sheets/actor-sheet.js
 
-export class DustperadosActorSheet extends ActorSheet {
-
+export class DustperadosActorSheet extends foundry.appv1.sheets.ActorSheet { 
     /** @override */
     static get defaultOptions() {
         return foundry.utils.mergeObject(super.defaultOptions, {
@@ -10,13 +9,7 @@ export class DustperadosActorSheet extends ActorSheet {
             width: 720,
             height: 800,
         });
-    }
-
-    /** @override */
-    getData() {
-        const context = super.getData();
-        context.system = this.actor.system;        
-        console.log("Dustperados | Actor Sheet Data (after getData):", context);
+    }console.log("Dustperados | Actor Sheet Data (after getData):", context);
         return context;
     }
 
