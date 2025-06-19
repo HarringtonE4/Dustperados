@@ -1,11 +1,17 @@
 {
     "Actor": {
-        "character": {
-            "description": {
+        "types": ["character"],
+        "templates": {
+            "base": {
+               "description": {
                 "type": "String",
                 "label": "Description",
-                "value": ""
+                "value": "" 
+                    }
+                }
             },
+        "character": {
+            "templates": {"base"},
             "abilities": {
                 "brawn": { "value": 0, "label": "DUSTPERADOS.Brawn" },
                 "quickness": { "value": 0, "label": "DUSTPERADOS.Quickness" },

@@ -1,6 +1,7 @@
+import { DustperadosActor} from "./documents/actor.mjs";
+import { DustperadosItem } from "./documents/item.mjs";
 import { DustperadosActorSheet } from "./sheets/actor-sheet.js";
 import { DustperadosItemSheet } from "./sheets/item-sheet.js";
-import { DUSTPERADOS } from "./config.js";
 
 
 class DustperadosSystem {
@@ -72,34 +73,33 @@ oundry.applications.handlebars.loadTemplates(templatePaths);
 
         // Register sheets
         this._registerSheets();
-    }
+    
 
-    /**
-     * Runs once when the system is ready.
-     */
-    onReady() {
-        console.log("Dustperados | System Ready (Ready Hook)");
-        // Any logic that needs to run after all data is loaded can go here.
-    }
+/**
+ * Runs once when the system is ready.
+ */
+onReady() {
+    console.log("Dustperados | System Ready (Ready Hook)");
+    // Any logic that needs to run after all data is loaded can go here.
+}
 
-    /**
-     * Registers actor and item sheets for the system.
-     * @private
-     */
-    _registerSheets() {
-        // Unregister default sheets and register custom ones using V13 paths
-        foundry.applications.apps.DocumentSheetConfig.unregisterSheet(Actor, "core", foundry.appv1.sheets.ActorSheet);
-        foundry.applications.apps.DocumentSheetConfig.registerSheet(Actor, "dustperados", DustperadosActorSheet, {
-            types: ["character"],
-            makeDefault: true,
-            label: "DUSTPERADOS.SheetTitleCharacter"
-        });
+/**
+ * Registers actor and item sheets for the system.
+ * @private
+ */
+_registerSheets() {
+    // Unregister default sheets and register custom ones using V13 paths
+    foundry.applications.apps.DocumentSheetConfig.unregisterSheet(Actor, "core", foundry.appv1.sheets.ActorSheet);
+    foundry.applications.apps.DocumentSheetConfig.registerSheet(Actor, "dustperados", DustperadosActorSheet, {
+        types: ["character"],
+        makeDefault: true,
+        label: "DUSTPERADOS.SheetTitleCharacter"
+    });
 
-        foundry.applications.apps.DocumentSheetConfig.unregisterSheet(Item, "core", foundry.appv1.sheets.ItemSheet);
-        foundry.applications.apps.DocumentSheetConfig.registerSheet(Item, "dustperados", DustperadosItemSheet, {
-            types: ["weapon", "equipment"],
-            makeDefault: true,
-            label: "DUSTPERADOS.SheetTitleItem"
-        });
-    }
+    foundry.applications.apps.DocumentSheetConfig.unregisterSheet(Item, "core", foundry.appv1.sheets.ItemSheet);
+    foundry.applications.apps.DocumentSheetConfig.registerSheet(Item, "dustperados", DustperadosItemSheet, {
+        types: ["weapon", "equipment"],
+        makeDefault: true,
+        label: "DUSTPERADOS.SheetTitleItem"
+    });
 }
